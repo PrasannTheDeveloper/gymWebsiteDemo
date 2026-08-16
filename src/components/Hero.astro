@@ -1,0 +1,515 @@
+---
+// Hero.astro - Layered Editorial Hero Section
+---
+
+<section class="hero-section" id="hero" aria-label="Introduction">
+  <!-- Architectural Background Grid & Ambient Glow -->
+  <div class="hero-backdrop">
+    <div class="hero-glow-accent"></div>
+    <div class="hero-grid-lines">
+      <div class="grid-col-line"></div>
+      <div class="grid-col-line"></div>
+      <div class="grid-col-line"></div>
+      <div class="grid-col-line"></div>
+    </div>
+  </div>
+
+  <div class="container hero-container">
+    <!-- Left Column: Editorial Headline & Actions -->
+    <div class="hero-content">
+      <div class="editorial-badge">
+        <span class="badge-dot"></span>
+        <span>SECTOR 04 // 45,000 SQ FT ATHLETIC COMPOUND</span>
+      </div>
+
+      <h1 class="hero-headline">
+        <span class="line-reveal"><span class="outline-text">BUILT UNDER</span></span>
+        <span class="line-reveal text-accent">PRESSURE.</span>
+        <span class="line-reveal">FORGE YOUR</span>
+        <span class="line-reveal text-white">STRONGEST SELF.</span>
+      </h1>
+
+      <p class="hero-description">
+        We do not sell comfortable illusions or effortless shortcuts. We engineer elite biomechanical strength, raw conditioning, and bulletproof resilience in an uncompromising industrial proving ground.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="hero-cta-group">
+        <button class="btn btn-primary btn-lg cut-corner-br open-trial-modal" type="button">
+          <span>CLAIM 3-DAY TRIAL PASS</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+        <a href="#facility" class="btn btn-secondary btn-lg">
+          <span>EXPLORE FACILITY</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Quick Trust Indicators -->
+      <div class="hero-trust-bar">
+        <div class="trust-item">
+          <span class="trust-num">24/7</span>
+          <span class="trust-label">BIOMETRIC ACCESS</span>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <span class="trust-num">0%</span>
+          <span class="trust-label">LONG-TERM LOCK-IN</span>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <span class="trust-num">35+</span>
+          <span class="trust-label">CERTIFIED COACHES</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Layered Editorial Image Composition -->
+    <div class="hero-visual">
+      <!-- Vertical Editorial Label -->
+      <div class="hero-vertical-tag">
+        <span>IRON FORGE • PERFORMANCE RIGOR • EST. 2014</span>
+      </div>
+
+      <!-- Main Layered Image Box -->
+      <div class="hero-image-wrapper">
+        <div class="hero-frame-corner top-left"></div>
+        <div class="hero-frame-corner bottom-right"></div>
+        
+        <img
+          src="/images/hero_athlete.jpg"
+          alt="Athlete deadlifting heavy iron barbell with chalk in industrial gym"
+          class="hero-main-img"
+          loading="eager"
+          fetchpriority="high"
+        />
+
+        <!-- Image Gradient Overlays for High-Tension Depth -->
+        <div class="hero-img-overlay"></div>
+
+        <!-- Floating Telemetry HUD Card -->
+        <div class="telemetry-hud cut-corner-tl">
+          <div class="hud-header">
+            <span class="status-dot"></span>
+            <span class="hud-title">LIVE TELEMETRY // SECTOR 04</span>
+          </div>
+          <div class="hud-body">
+            <div class="hud-stat">
+              <span class="hud-stat-label">BARBELL PLATFORMS</span>
+              <span class="hud-stat-val text-accent">14 / 14 ACTIVE</span>
+            </div>
+            <div class="hud-stat">
+              <span class="hud-stat-label">TEMPERATURE</span>
+              <span class="hud-stat-val">19.5°C • OPTIMAL</span>
+            </div>
+            <div class="hud-stat">
+              <span class="hud-stat-label">NEXT DROP-IN CLASS</span>
+              <span class="hud-stat-val text-white">18:00 HYROX ENGINE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Scroll Anchor Indicator -->
+  <div class="hero-scroll-indicator">
+    <a href="#stats" aria-label="Scroll to stats section" class="scroll-link">
+      <span class="scroll-text">DISCOVER MORE</span>
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: calc(72px + 2rem);
+    padding-bottom: 5rem;
+    overflow: hidden;
+    background-color: var(--bg-black);
+  }
+
+  /* Architectural Grid Backdrop */
+  .hero-backdrop {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero-glow-accent {
+    position: absolute;
+    top: 20%;
+    right: 15%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(184, 255, 0, 0.08) 0%, rgba(8, 9, 11, 0) 70%);
+    filter: blur(60px);
+  }
+
+  .hero-grid-lines {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+  }
+
+  .grid-col-line {
+    border-right: 1px solid rgba(255, 255, 255, 0.03);
+    height: 100%;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.15fr 0.95fr;
+    gap: 3.5rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Content Column */
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-primary);
+    border-radius: 50%;
+  }
+
+  .hero-headline {
+    font-size: clamp(3.25rem, 6.2vw, 6.2rem);
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .line-reveal {
+    display: block;
+  }
+
+  .outline-text {
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.85);
+    color: transparent;
+    transition: color var(--transition-fast);
+  }
+
+  .outline-text:hover {
+    color: var(--text-white);
+  }
+
+  .text-accent {
+    color: var(--accent-primary);
+  }
+
+  .text-white {
+    color: var(--text-white);
+  }
+
+  .hero-description {
+    font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+    line-height: 1.6;
+    color: var(--text-body);
+    max-width: 54ch;
+    margin-bottom: 2.25rem;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+  }
+
+  /* Trust Indicators */
+  .hero-trust-bar {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--border-subtle);
+    width: 100%;
+    max-width: 540px;
+  }
+
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .trust-num {
+    font-family: var(--font-display);
+    font-size: 1.85rem;
+    line-height: 1;
+    color: var(--text-white);
+  }
+
+  .trust-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    margin-top: 0.2rem;
+  }
+
+  .trust-divider {
+    width: 1px;
+    height: 32px;
+    background-color: var(--border-medium);
+  }
+
+  /* Visual Column */
+  .hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .hero-vertical-tag {
+    position: absolute;
+    left: -2.5rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: center center;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--text-muted);
+    white-space: nowrap;
+    opacity: 0.7;
+  }
+
+  .hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    height: 620px;
+    border: 1px solid var(--border-medium);
+    background-color: var(--bg-surface);
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  }
+
+  .hero-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: contrast(1.15) brightness(0.95);
+    transition: transform 0.8s var(--ease-out-expo), filter 0.8s var(--ease-out-expo);
+  }
+
+  .hero-image-wrapper:hover .hero-main-img {
+    transform: scale(1.03);
+    filter: contrast(1.2) brightness(1);
+  }
+
+  .hero-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(8, 9, 11, 0.1) 0%,
+      rgba(8, 9, 11, 0.4) 60%,
+      rgba(8, 9, 11, 0.95) 100%
+    );
+    pointer-events: none;
+  }
+
+  .hero-frame-corner {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .hero-frame-corner.top-left {
+    top: 8px;
+    left: 8px;
+    border-top: 2px solid var(--accent-primary);
+    border-left: 2px solid var(--accent-primary);
+  }
+
+  .hero-frame-corner.bottom-right {
+    bottom: 8px;
+    right: 8px;
+    border-bottom: 2px solid var(--accent-primary);
+    border-right: 2px solid var(--accent-primary);
+  }
+
+  /* Telemetry HUD Card */
+  .telemetry-hud {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    background: rgba(14, 15, 20, 0.92);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-medium);
+    padding: 1.15rem;
+    z-index: 6;
+  }
+
+  .hud-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 0.65rem;
+  }
+
+  .hud-title {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    color: var(--text-white);
+    font-weight: 700;
+  }
+
+  .hud-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .hud-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+  }
+
+  .hud-stat-label {
+    color: var(--text-muted);
+  }
+
+  .hud-stat-val {
+    font-weight: 600;
+    color: var(--text-white);
+  }
+
+  /* Scroll Indicator */
+  .hero-scroll-indicator {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+
+  .scroll-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    transition: color var(--transition-fast);
+  }
+
+  .scroll-link:hover {
+    color: var(--accent-primary);
+  }
+
+  .scroll-mouse {
+    width: 18px;
+    height: 30px;
+    border: 1px solid var(--border-medium);
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .scroll-wheel {
+    width: 3px;
+    height: 6px;
+    background-color: var(--accent-primary);
+    border-radius: 2px;
+    margin-top: 5px;
+    animation: scroll-bob 2s infinite ease-in-out;
+  }
+
+  @keyframes scroll-bob {
+    0% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(8px); opacity: 0.2; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  /* Responsive Media Queries */
+  @media (max-width: 1080px) {
+    .hero-container {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .hero-vertical-tag {
+      display: none;
+    }
+    .hero-visual {
+      justify-content: center;
+    }
+    .hero-image-wrapper {
+      max-width: 100%;
+      height: 480px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-section {
+      padding-top: 5.5rem;
+      padding-bottom: 4rem;
+    }
+    .hero-headline {
+      font-size: 3rem;
+    }
+    .hero-cta-group {
+      flex-direction: column;
+      width: 100%;
+    }
+    .hero-cta-group .btn {
+      width: 100%;
+    }
+    .hero-trust-bar {
+      gap: 1rem;
+    }
+    .trust-num {
+      font-size: 1.45rem;
+    }
+    .hero-image-wrapper {
+      height: 360px;
+    }
+    .telemetry-hud {
+      padding: 0.85rem;
+      bottom: 0.75rem;
+      left: 0.75rem;
+      right: 0.75rem;
+    }
+    .hero-scroll-indicator {
+      display: none;
+    }
+  }
+</style>

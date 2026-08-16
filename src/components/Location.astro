@@ -1,0 +1,547 @@
+---
+// Location.astro - Compound Logistics, Tactical Map & Hours
+---
+
+<section class="section location-section section-border-top" id="location" aria-label="Location and Facility Hours">
+  <div class="container">
+    <!-- Header -->
+    <div class="location-header">
+      <div>
+        <div class="editorial-badge">
+          <span>09 // TACTICAL COMPOUND</span>
+        </div>
+        <h2 class="section-title-huge">
+          THE <span class="text-accent">LOCATION.</span>
+        </h2>
+        <p class="section-lead">
+          Strategically situated in San Francisco’s historic industrial corridor. Engineered with direct highway access, dedicated private athlete parking, and 24/7 biometric surveillance.
+        </p>
+      </div>
+
+      <div class="location-status-badge">
+        <span class="status-dot"></span>
+        <span class="loc-status-text">FACILITY STATUS: <strong>OPEN • 24/7 BIOMETRIC ACTIVE</strong></span>
+      </div>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="location-grid">
+      <!-- Left: Specs & Hours -->
+      <div class="location-details-col">
+        <!-- Address & Contact Box -->
+        <div class="loc-card cut-corner-br">
+          <div class="loc-card-header">
+            <span class="card-num">01 //</span>
+            <span class="card-tag">COMPOUND COORDINATES</span>
+          </div>
+
+          <h3 class="loc-card-title">IRON FORGE HEADQUARTERS</h3>
+          <p class="loc-address">
+            742 Foundry Industrial Blvd, District 4<br />
+            San Francisco, CA 94107
+          </p>
+
+          <div class="loc-contact-list">
+            <div class="contact-line">
+              <span class="c-label">DIRECT PHONE:</span>
+              <a href="tel:+14158904766" class="c-val text-accent">(415) 890-IRON (4766)</a>
+            </div>
+            <div class="contact-line">
+              <span class="c-label">ATHLETE DESK:</span>
+              <a href="mailto:cadre@ironforgefitness.com" class="c-val text-white">cadre@ironforgefitness.com</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hours Box -->
+        <div class="loc-card">
+          <div class="loc-card-header">
+            <span class="card-num">02 //</span>
+            <span class="card-tag">OPERATIONAL SCHEDULE</span>
+          </div>
+
+          <div class="hours-list">
+            <div class="hours-row highlight">
+              <span class="h-days">MEMBER BIOMETRIC ENTRY</span>
+              <span class="h-time text-accent">24 HOURS / 7 DAYS / 365 DAYS</span>
+            </div>
+            <div class="hours-row">
+              <span class="h-days">STAFFED COACHING DESK</span>
+              <span class="h-time">MON – FRI: 05:30 – 22:00</span>
+            </div>
+            <div class="hours-row">
+              <span class="h-days">WEEKEND STAFFED HOURS</span>
+              <span class="h-time">SAT – SUN: 07:00 – 20:00</span>
+            </div>
+            <div class="hours-row">
+              <span class="h-days">CRYO & RECOVERY SUITE</span>
+              <span class="h-time">DAILY: 06:00 – 23:00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Parking & Transit Box -->
+        <div class="loc-card">
+          <div class="loc-card-header">
+            <span class="card-num">03 //</span>
+            <span class="card-tag">ATHLETE LOGISTICS</span>
+          </div>
+
+          <div class="amenities-grid">
+            <div class="amenity-item">
+              <span class="am-dot text-accent">✓</span>
+              <span>80+ Gated Athlete Parking Spaces</span>
+            </div>
+            <div class="amenity-item">
+              <span class="am-dot text-accent">✓</span>
+              <span>Level-2 Fast EV Charging Stations</span>
+            </div>
+            <div class="amenity-item">
+              <span class="am-dot text-accent">✓</span>
+              <span>Indoor Secure Bike Storage & Lockers</span>
+            </div>
+            <div class="amenity-item">
+              <span class="am-dot text-accent">✓</span>
+              <span>3 Min from I-280 & Caltrain Station</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Tactical Map Simulation & Visit Booking -->
+      <div class="location-map-col">
+        <div class="tactical-map-frame cut-corner-br">
+          <!-- Tactical Map Visual Canvas -->
+          <div class="map-visual">
+            <div class="map-grid-overlay"></div>
+            
+            <!-- Radar Scanner Animation -->
+            <div class="radar-sweep"></div>
+            <div class="radar-ping"></div>
+
+            <!-- Compound Pin Marker -->
+            <div class="compound-marker">
+              <div class="marker-pulse"></div>
+              <div class="marker-box">
+                <span class="m-code">IF-04</span>
+                <span class="m-name">IRON FORGE COMPOUND</span>
+              </div>
+            </div>
+
+            <!-- Compass / Coordinates Stamp -->
+            <div class="map-telemetry-stamp">
+              <span>LAT 37.7690° N // LON 122.3920° W</span>
+              <span>ELEVATION: 18 FT // SECTOR 04 INDUSTRIAL</span>
+            </div>
+          </div>
+
+          <!-- Quick Compound Visit Form -->
+          <div class="map-form-wrapper">
+            <div class="map-form-header">
+              <h4 class="form-title">BOOK A WALKTHROUGH & 1-ON-1 INTAKE</h4>
+              <p class="form-sub">Tour the compound with a lead coach before starting your trial.</p>
+            </div>
+
+            <form class="visit-form" id="visitForm">
+              <div class="form-row">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="FULL ATHLETE NAME"
+                  class="form-input"
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="EMAIL ADDRESS"
+                  class="form-input"
+                  required
+                />
+              </div>
+
+              <div class="form-row">
+                <select name="timeSlot" class="form-input" required>
+                  <option value="" disabled selected>PREFERRED VISIT TIME</option>
+                  <option value="morning">Morning (06:00 - 11:00)</option>
+                  <option value="afternoon">Afternoon (12:00 - 16:00)</option>
+                  <option value="evening">Evening (17:00 - 20:00)</option>
+                </select>
+                <button class="btn btn-primary btn-sm cut-corner-br" type="submit">
+                  <span>CONFIRM VISIT</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .location-section {
+    background-color: var(--bg-deep);
+    position: relative;
+  }
+
+  .location-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .location-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-medium);
+    padding: 0.65rem 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-white);
+  }
+
+  .loc-status-text strong {
+    color: var(--accent-primary);
+  }
+
+  /* Grid */
+  .location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 2.5rem;
+    align-items: stretch;
+  }
+
+  /* Details Column */
+  .location-details-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .loc-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .loc-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    margin-bottom: 1rem;
+  }
+
+  .card-num {
+    color: var(--accent-primary);
+    font-weight: 700;
+  }
+
+  .loc-card-title {
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    color: var(--text-white);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .loc-address {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-body);
+    margin-bottom: 1.25rem;
+  }
+
+  .loc-contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .contact-line {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+
+  .c-label {
+    color: var(--text-muted);
+  }
+
+  .c-val {
+    font-weight: 600;
+  }
+
+  /* Hours List */
+  .hours-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .hours-row.highlight {
+    background-color: var(--accent-dim);
+    padding: 0.65rem 0.85rem;
+    border-left: 2px solid var(--accent-primary);
+  }
+
+  .h-days {
+    color: var(--text-body);
+  }
+
+  .h-time {
+    font-weight: 600;
+    color: var(--text-white);
+  }
+
+  /* Amenities */
+  .amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+
+  .amenity-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--text-white);
+  }
+
+  .am-dot {
+    font-weight: 700;
+  }
+
+  /* Right: Map Frame */
+  .location-map-col {
+    display: flex;
+  }
+
+  .tactical-map-frame {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-medium);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+
+  .map-visual {
+    position: relative;
+    height: 380px;
+    background-color: #0c0d12;
+    background-image: 
+      radial-gradient(circle at center, rgba(184, 255, 0, 0.05) 0%, transparent 70%),
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 30px 30px, 30px 30px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .radar-sweep {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(184, 255, 0, 0.15);
+    background: conic-gradient(from 0deg at 50% 50%, rgba(184, 255, 0, 0.15) 0deg, transparent 60deg, transparent 360deg);
+    animation: radar-rotate 8s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes radar-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .compound-marker {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .marker-pulse {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--accent-primary);
+    box-shadow: 0 0 20px var(--accent-primary);
+    animation: pulse-dot 2s infinite ease-in-out;
+  }
+
+  .marker-box {
+    margin-top: 0.5rem;
+    background: rgba(8, 9, 11, 0.92);
+    border: 1px solid var(--accent-primary);
+    padding: 0.4rem 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .m-code {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+  }
+
+  .m-name {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    color: var(--text-white);
+    letter-spacing: 0.05em;
+  }
+
+  .map-telemetry-stamp {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    right: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* Form */
+  .map-form-wrapper {
+    padding: 1.75rem;
+    background-color: var(--bg-surface);
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .map-form-header {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: var(--text-white);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.25rem;
+  }
+
+  .form-sub {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+
+  .visit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+  }
+
+  .form-input {
+    background-color: var(--bg-deep);
+    border: 1px solid var(--border-medium);
+    color: var(--text-white);
+    padding: 0.75rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    outline: none;
+    transition: border-color var(--transition-fast);
+  }
+
+  .form-input:focus {
+    border-color: var(--accent-primary);
+  }
+
+  .form-input option {
+    background-color: var(--bg-deep);
+    color: var(--text-white);
+  }
+
+  .text-accent {
+    color: var(--accent-primary);
+  }
+
+  .text-white {
+    color: var(--text-white);
+  }
+
+  /* Responsive Media Queries */
+  @media (max-width: 1100px) {
+    .location-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .location-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .amenities-grid {
+      grid-template-columns: 1fr;
+    }
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+    .map-visual {
+      height: 280px;
+    }
+  }
+</style>
+
+<script>
+  // Visit Form Submission
+  const visitForm = document.getElementById('visitForm');
+  visitForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const target = e.target as HTMLFormElement;
+    const name = (target.elements.namedItem('name') as HTMLInputElement)?.value;
+
+    const toast = document.getElementById('globalToast');
+    const toastMsg = document.getElementById('toastMessage');
+    if (toast && toastMsg) {
+      toastMsg.textContent = `Intake Scheduled! Lead coach will contact ${name || 'you'} within 2 hours.`;
+      toast.classList.add('active');
+      setTimeout(() => toast.classList.remove('active'), 5000);
+    }
+    target.reset();
+  });
+</script>

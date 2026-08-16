@@ -1,0 +1,627 @@
+---
+// Schedule.astro - Interactive Weekly Live Class Schedule
+---
+
+<section class="section schedule-section section-border-top" id="schedule" aria-label="Class Schedule">
+  <div class="container">
+    <!-- Header -->
+    <div class="schedule-header">
+      <div>
+        <div class="editorial-badge">
+          <span>05 // LIVE TIMETABLE</span>
+        </div>
+        <h2 class="section-title-huge">
+          CLASS <span class="text-accent">ROSTER.</span>
+        </h2>
+        <p class="section-lead">
+          Small-cadre coach-led sessions capped at 12 athletes per block to ensure individual biomechanical form checks and high intensity.
+        </p>
+      </div>
+
+      <!-- Time Filter Selector -->
+      <div class="time-filter-pills" role="radiogroup" aria-label="Filter by time of day">
+        <button class="time-pill active" data-time="all" type="button">ALL HOURS</button>
+        <button class="time-pill" data-time="morning" type="button">MORNING (06:00-12:00)</button>
+        <button class="time-pill" data-time="evening" type="button">EVENING (16:00-21:00)</button>
+      </div>
+    </div>
+
+    <!-- Day of the Week Tab Bar -->
+    <div class="day-tabs-bar" role="tablist" aria-label="Days of the week">
+      <button class="day-tab active" data-day="mon" role="tab" aria-selected="true">
+        <span class="day-code">MON</span>
+        <span class="day-full">MONDAY</span>
+      </button>
+      <button class="day-tab" data-day="tue" role="tab" aria-selected="false">
+        <span class="day-code">TUE</span>
+        <span class="day-full">TUESDAY</span>
+      </button>
+      <button class="day-tab" data-day="wed" role="tab" aria-selected="false">
+        <span class="day-code">WED</span>
+        <span class="day-full">WEDNESDAY</span>
+      </button>
+      <button class="day-tab" data-day="thu" role="tab" aria-selected="false">
+        <span class="day-code">THU</span>
+        <span class="day-full">THURSDAY</span>
+      </button>
+      <button class="day-tab" data-day="fri" role="tab" aria-selected="false">
+        <span class="day-code">FRI</span>
+        <span class="day-full">FRIDAY</span>
+      </button>
+      <button class="day-tab" data-day="sat" role="tab" aria-selected="false">
+        <span class="day-code">SAT</span>
+        <span class="day-full">SATURDAY</span>
+      </button>
+      <button class="day-tab" data-day="sun" role="tab" aria-selected="false">
+        <span class="day-code">SUN</span>
+        <span class="day-full">SUNDAY</span>
+      </button>
+    </div>
+
+    <!-- Schedule List Table -->
+    <div class="schedule-list-wrapper" id="scheduleRoster">
+      <!-- Monday Sessions (Default) -->
+      <div class="day-schedule-pane active" id="pane-mon">
+        <!-- Session 1 -->
+        <div class="schedule-row" data-period="morning">
+          <div class="time-col">
+            <span class="time-main">06:00</span>
+            <span class="time-sub">60 MIN</span>
+          </div>
+          <div class="class-info-col">
+            <div class="class-meta">
+              <span class="class-type text-accent">STRENGTH FOUNDRY</span>
+              <span class="class-location">ZONE 01 // POWER RACKS</span>
+            </div>
+            <h3 class="class-title">HEAVY IRON: SQUAT & CNS OVERLOAD</h3>
+            <p class="class-coach">COACH: <strong>ALEX CARTER (CSCS)</strong></p>
+          </div>
+          <div class="status-col">
+            <span class="spots-badge low">3 SPOTS LEFT</span>
+            <span class="intensity-tag">RPE 9-10</span>
+          </div>
+          <div class="action-col">
+            <button class="btn btn-primary btn-sm cut-corner-br open-trial-modal" data-class="Heavy Iron: Squat & CNS Overload (Mon 06:00)">
+              RESERVE SPOT
+            </button>
+          </div>
+        </div>
+
+        <!-- Session 2 -->
+        <div class="schedule-row" data-period="morning">
+          <div class="time-col">
+            <span class="time-main">08:00</span>
+            <span class="time-sub">50 MIN</span>
+          </div>
+          <div class="class-info-col">
+            <div class="class-meta">
+              <span class="class-type text-accent">HYBRID ENDURANCE</span>
+              <span class="class-location">ZONE 02 // 60M TURF</span>
+            </div>
+            <h3 class="class-title">HYROX RACE ENGINE & PROWLER WORK</h3>
+            <p class="class-coach">COACH: <strong>MARCUS THORNE</strong></p>
+          </div>
+          <div class="status-col">
+            <span class="spots-badge">6 SPOTS LEFT</span>
+            <span class="intensity-tag">ZONE 4/5</span>
+          </div>
+          <div class="action-col">
+            <button class="btn btn-primary btn-sm cut-corner-br open-trial-modal" data-class="Hyrox Race Engine & Prowler Work (Mon 08:00)">
+              RESERVE SPOT
+            </button>
+          </div>
+        </div>
+
+        <!-- Session 3 -->
+        <div class="schedule-row" data-period="morning">
+          <div class="time-col">
+            <span class="time-main">10:30</span>
+            <span class="time-sub">60 MIN</span>
+          </div>
+          <div class="class-info-col">
+            <div class="class-meta">
+              <span class="class-type text-accent">OLYMPIC RIGOR</span>
+              <span class="class-location">ZONE 01 // PLATFORMS</span>
+            </div>
+            <h3 class="class-title">SNATCH KINEMATICS & OVERHEAD STABILITY</h3>
+            <p class="class-coach">COACH: <strong>MAYA VANCE (USAW)</strong></p>
+          </div>
+          <div class="status-col">
+            <span class="spots-badge">4 SPOTS LEFT</span>
+            <span class="intensity-tag">TECHNICAL</span>
+          </div>
+          <div class="action-col">
+            <button class="btn btn-primary btn-sm cut-corner-br open-trial-modal" data-class="Snatch Kinematics (Mon 10:30)">
+              RESERVE SPOT
+            </button>
+          </div>
+        </div>
+
+        <!-- Session 4 -->
+        <div class="schedule-row" data-period="evening">
+          <div class="time-col">
+            <span class="time-main">17:30</span>
+            <span class="time-sub">45 MIN</span>
+          </div>
+          <div class="class-info-col">
+            <div class="class-meta">
+              <span class="class-type text-accent">PUGILISTIC COMBAT</span>
+              <span class="class-location">ZONE 04 // COMBAT ARENA</span>
+            </div>
+            <h3 class="class-title">BOXING POWER & 10-ROUND HEAVY BAG</h3>
+            <p class="class-coach">COACH: <strong>ELENA ROSTOVA</strong></p>
+          </div>
+          <div class="status-col">
+            <span class="spots-badge low">2 SPOTS LEFT</span>
+            <span class="intensity-tag">ANAEROBIC</span>
+          </div>
+          <div class="action-col">
+            <button class="btn btn-primary btn-sm cut-corner-br open-trial-modal" data-class="Boxing Power & Heavy Bag (Mon 17:30)">
+              RESERVE SPOT
+            </button>
+          </div>
+        </div>
+
+        <!-- Session 5 -->
+        <div class="schedule-row" data-period="evening">
+          <div class="time-col">
+            <span class="time-main">19:00</span>
+            <span class="time-sub">60 MIN</span>
+          </div>
+          <div class="class-info-col">
+            <div class="class-meta">
+              <span class="class-type text-accent">STRENGTH FOUNDRY</span>
+              <span class="class-location">ZONE 01 // POWER RACKS</span>
+            </div>
+            <h3 class="class-title">BENCH PRESS VELOCITY & UPPER HYPERTROPHY</h3>
+            <p class="class-coach">COACH: <strong>ALEX CARTER</strong></p>
+          </div>
+          <div class="status-col">
+            <span class="spots-badge">5 SPOTS LEFT</span>
+            <span class="intensity-tag">RPE 8-9</span>
+          </div>
+          <div class="action-col">
+            <button class="btn btn-primary btn-sm cut-corner-br open-trial-modal" data-class="Bench Press Velocity (Mon 19:00)">
+              RESERVE SPOT
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tuesday Schedule -->
+      <div class="day-schedule-pane" id="pane-tue">
+        <div class="schedule-row" data-period="morning">
+          <div class="time-col">
+            <span class="time-main">06:00</span>
+            <span class="time-sub">50 MIN</span>
+          </div>
+          <div class="class-info-col">
+            <div class="class-meta">
+              <span class="class-type text-accent">METABOLIC ENGINE</span>
+              <span class="class-location">ZONE 02 // TURF</span>
+            </div>
+            <h3 class="class-title">TABATA INFERNO & ASSAULT BIKE INTERVALS</h3>
+            <p class="class-coach">COACH: <strong>MARCUS THORNE</strong></p>
+          </div>
+          <div class="status-col">
+            <span class="spots-badge">5 SPOTS LEFT</span>
+            <span class="intensity-tag">PEAK CALORIC</span>
+          </div>
+          <div class="action-col">
+            <button class="btn btn-primary btn-sm cut-corner-br open-trial-modal" data-class="Tabata Inferno (Tue 06:00)">RESERVE SPOT</button>
+          </div>
+        </div>
+
+        <div class="schedule-row" data-period="evening">
+          <div class="time-col">
+            <span class="time-main">18:00</span>
+            <span class="time-sub">60 MIN</span>
+          </div>
+          <div class="class-info-col">
+            <div class="class-meta">
+              <span class="class-type text-accent">STRENGTH FOUNDRY</span>
+              <span class="class-location">ZONE 01 // PLATFORMS</span>
+            </div>
+            <h3 class="class-title">DEADLIFT CLINIC & POSTERIOR CHAIN</h3>
+            <p class="class-coach">COACH: <strong>ALEX CARTER</strong></p>
+          </div>
+          <div class="status-col">
+            <span class="spots-badge low">1 SPOT LEFT</span>
+            <span class="intensity-tag">RPE 9-10</span>
+          </div>
+          <div class="action-col">
+            <button class="btn btn-primary btn-sm cut-corner-br open-trial-modal" data-class="Deadlift Clinic (Tue 18:00)">RESERVE SPOT</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Other days fallback template generated via JS -->
+      <div class="day-schedule-pane" id="pane-wed">
+        <div class="schedule-row" data-period="morning">
+          <div class="time-col"><span class="time-main">07:00</span><span class="time-sub">60 MIN</span></div>
+          <div class="class-info-col">
+            <div class="class-meta"><span class="class-type text-accent">OLYMPIC RIGOR</span><span class="class-location">ZONE 01</span></div>
+            <h3 class="class-title">CLEAN & JERK VELOCITY BLOCKS</h3>
+            <p class="class-coach">COACH: <strong>MAYA VANCE</strong></p>
+          </div>
+          <div class="status-col"><span class="spots-badge">4 SPOTS LEFT</span><span class="intensity-tag">TECHNICAL</span></div>
+          <div class="action-col"><button class="btn btn-primary btn-sm cut-corner-br open-trial-modal" data-class="Clean & Jerk (Wed 07:00)">RESERVE SPOT</button></div>
+        </div>
+        <div class="schedule-row" data-period="evening">
+          <div class="time-col"><span class="time-main">18:30</span><span class="time-sub">45 MIN</span></div>
+          <div class="class-info-col">
+            <div class="class-meta"><span class="class-type text-accent">RECOVERY SUITE</span><span class="class-location">ZONE 03</span></div>
+            <h3 class="class-title">CRYO CONTRAST & DYNAMIC MOBILITY FLUSH</h3>
+            <p class="class-coach">COACH: <strong>MAYA VANCE</strong></p>
+          </div>
+          <div class="status-col"><span class="spots-badge">7 SPOTS LEFT</span><span class="intensity-tag">RECOVERY</span></div>
+          <div class="action-col"><button class="btn btn-primary btn-sm cut-corner-br open-trial-modal" data-class="Cryo Contrast (Wed 18:30)">RESERVE SPOT</button></div>
+        </div>
+      </div>
+
+      <div class="day-schedule-pane" id="pane-thu">
+        <div class="schedule-row" data-period="morning">
+          <div class="time-col"><span class="time-main">06:30</span><span class="time-sub">50 MIN</span></div>
+          <div class="class-info-col">
+            <div class="class-meta"><span class="class-type text-accent">HYBRID</span><span class="class-location">ZONE 02</span></div>
+            <h3 class="class-title">TACTICAL KETTLEBELL & SANDBAG COMPLEX</h3>
+            <p class="class-coach">COACH: <strong>MARCUS THORNE</strong></p>
+          </div>
+          <div class="status-col"><span class="spots-badge">3 SPOTS LEFT</span><span class="intensity-tag">HIGH DENSITY</span></div>
+          <div class="action-col"><button class="btn btn-primary btn-sm cut-corner-br open-trial-modal" data-class="Tactical Kettlebell (Thu 06:30)">RESERVE SPOT</button></div>
+        </div>
+      </div>
+
+      <div class="day-schedule-pane" id="pane-fri">
+        <div class="schedule-row" data-period="morning">
+          <div class="time-col"><span class="time-main">06:00</span><span class="time-sub">60 MIN</span></div>
+          <div class="class-info-col">
+            <div class="class-meta"><span class="class-type text-accent">STRENGTH</span><span class="class-location">ZONE 01</span></div>
+            <h3 class="class-title">HEAVY IRON: OVERHEAD PRESS & UPPER CNS</h3>
+            <p class="class-coach">COACH: <strong>ALEX CARTER</strong></p>
+          </div>
+          <div class="status-col"><span class="spots-badge">4 SPOTS LEFT</span><span class="intensity-tag">RPE 9</span></div>
+          <div class="action-col"><button class="btn btn-primary btn-sm cut-corner-br open-trial-modal" data-class="Overhead Press (Fri 06:00)">RESERVE SPOT</button></div>
+        </div>
+        <div class="schedule-row" data-period="evening">
+          <div class="time-col"><span class="time-main">17:00</span><span class="time-sub">50 MIN</span></div>
+          <div class="class-info-col">
+            <div class="class-meta"><span class="class-type text-accent">COMBAT</span><span class="class-location">ZONE 04</span></div>
+            <h3 class="class-title">FRIDAY NIGHT FIGHT NIGHT: HEAVY SPARRING & BAGS</h3>
+            <p class="class-coach">COACH: <strong>ELENA ROSTOVA</strong></p>
+          </div>
+          <div class="status-col"><span class="spots-badge low">2 SPOTS LEFT</span><span class="intensity-tag">PEAK INTENSITY</span></div>
+          <div class="action-col"><button class="btn btn-primary btn-sm cut-corner-br open-trial-modal" data-class="Fight Night (Fri 17:00)">RESERVE SPOT</button></div>
+        </div>
+      </div>
+
+      <div class="day-schedule-pane" id="pane-sat">
+        <div class="schedule-row" data-period="morning">
+          <div class="time-col"><span class="time-main">08:00</span><span class="time-sub">75 MIN</span></div>
+          <div class="class-info-col">
+            <div class="class-meta"><span class="class-type text-accent">HYBRID CADRE</span><span class="class-location">ALL ZONES</span></div>
+            <h3 class="class-title">SATURDAY MORNING FORGE CRUCIBLE (FULL COMPOUND)</h3>
+            <p class="class-coach">COACHES: <strong>ALEX CARTER & MARCUS THORNE</strong></p>
+          </div>
+          <div class="status-col"><span class="spots-badge low">FULL / 2 ON WAITLIST</span><span class="intensity-tag">MAXIMAL</span></div>
+          <div class="action-col"><button class="btn btn-secondary btn-sm cut-corner-br open-trial-modal" data-class="Forge Crucible (Sat 08:00)">JOIN WAITLIST</button></div>
+        </div>
+      </div>
+
+      <div class="day-schedule-pane" id="pane-sun">
+        <div class="schedule-row" data-period="morning">
+          <div class="time-col"><span class="time-main">09:30</span><span class="time-sub">60 MIN</span></div>
+          <div class="class-info-col">
+            <div class="class-meta"><span class="class-type text-accent">RECOVERY & MOBILITY</span><span class="class-location">ZONE 03</span></div>
+            <h3 class="class-title">SUNDAY DECOMPRESSION, COLD PLUNGE & BREATHWORK</h3>
+            <p class="class-coach">COACH: <strong>MAYA VANCE</strong></p>
+          </div>
+          <div class="status-col"><span class="spots-badge">8 SPOTS LEFT</span><span class="intensity-tag">REGENERATION</span></div>
+          <div class="action-col"><button class="btn btn-primary btn-sm cut-corner-br open-trial-modal" data-class="Sunday Decompression (Sun 09:30)">RESERVE SPOT</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .schedule-section {
+    background-color: var(--bg-black);
+    position: relative;
+  }
+
+  .schedule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Time Filter Pills */
+  .time-filter-pills {
+    display: flex;
+    gap: 0.5rem;
+    background-color: var(--bg-surface);
+    padding: 0.35rem;
+    border: 1px solid var(--border-subtle);
+  }
+
+  .time-pill {
+    background: transparent;
+    border: none;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 0.5rem 0.85rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .time-pill:hover {
+    color: var(--text-white);
+  }
+
+  .time-pill.active {
+    background-color: var(--bg-elevated);
+    color: var(--accent-primary);
+    border: 1px solid var(--accent-border);
+  }
+
+  /* Day Tabs Bar */
+  .day-tabs-bar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .day-tab {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    padding: 1rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+  }
+
+  .day-tab:hover {
+    background-color: var(--bg-card);
+    border-color: var(--border-medium);
+  }
+
+  .day-tab.active {
+    background-color: var(--bg-card);
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 15px rgba(184, 255, 0, 0.15);
+  }
+
+  .day-code {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--text-white);
+  }
+
+  .day-tab.active .day-code {
+    color: var(--accent-primary);
+  }
+
+  .day-full {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    margin-top: 0.25rem;
+  }
+
+  /* Schedule List Rows */
+  .schedule-list-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .day-schedule-pane {
+    display: none;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .day-schedule-pane.active {
+    display: flex;
+  }
+
+  .schedule-row {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    padding: 1.25rem 1.5rem;
+    display: grid;
+    grid-template-columns: 100px 1.5fr 1fr 160px;
+    align-items: center;
+    gap: 1.5rem;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .schedule-row:hover {
+    background-color: var(--bg-card);
+    border-color: var(--border-medium);
+    transform: translateX(4px);
+  }
+
+  .time-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .time-main {
+    font-family: var(--font-display);
+    font-size: 1.85rem;
+    line-height: 1;
+    color: var(--text-white);
+  }
+
+  .time-sub {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    margin-top: 0.2rem;
+  }
+
+  .class-info-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .class-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+  }
+
+  .class-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    letter-spacing: 0.03em;
+    color: var(--text-white);
+    line-height: 1.1;
+    margin-bottom: 0.25rem;
+  }
+
+  .class-coach {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  .class-coach strong {
+    color: var(--text-body);
+  }
+
+  .status-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .spots-badge {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-border);
+    padding: 0.25rem 0.6rem;
+    letter-spacing: 0.08em;
+  }
+
+  .spots-badge.low {
+    color: #ff5555;
+    background: rgba(255, 85, 85, 0.12);
+    border-color: rgba(255, 85, 85, 0.35);
+  }
+
+  .intensity-tag {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  .action-col {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  /* Responsive Breakpoints */
+  @media (max-width: 1024px) {
+    .schedule-row {
+      grid-template-columns: 80px 1fr auto;
+      gap: 1rem;
+    }
+    .status-col {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .day-tabs-bar {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .day-tab:nth-child(n+5) {
+      grid-column: span 1;
+    }
+    .schedule-row {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .action-col {
+      justify-content: stretch;
+    }
+    .action-col .btn {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .day-tabs-bar {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
+
+<script>
+  // Day tab switcher
+  const dayTabs = document.querySelectorAll('.day-tab');
+  const dayPanes = document.querySelectorAll('.day-schedule-pane');
+
+  dayTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      dayTabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+
+      const targetDay = tab.getAttribute('data-day');
+      dayPanes.forEach(pane => {
+        if (pane.id === `pane-${targetDay}`) {
+          pane.classList.add('active');
+        } else {
+          pane.classList.remove('active');
+        }
+      });
+    });
+  });
+
+  // Time filter pills
+  const timePills = document.querySelectorAll('.time-pill');
+  timePills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      timePills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+
+      const filterTime = pill.getAttribute('data-time');
+      const rows = document.querySelectorAll<HTMLElement>('.schedule-row');
+
+      rows.forEach(row => {
+        const period = row.getAttribute('data-period');
+        if (filterTime === 'all' || period === filterTime) {
+          row.style.display = 'grid';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

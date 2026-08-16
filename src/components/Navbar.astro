@@ -1,0 +1,538 @@
+---
+// Navbar.astro - Editorial Brutalist Navigation
+---
+
+<header class="site-header" id="siteHeader">
+  <!-- Top Utility Telemetry Bar -->
+  <div class="header-topbar">
+    <div class="container header-topbar-inner">
+      <div class="topbar-status">
+        <span class="status-dot"></span>
+        <span class="topbar-text">SAN FRANCISCO COMPOUND // <strong class="text-accent">OPEN 24/7/365</strong></span>
+      </div>
+      <div class="topbar-stats">
+        <span class="topbar-item">LIVE OCCUPANCY: <strong id="liveOccupancy">38%</strong></span>
+        <span class="topbar-sep">|</span>
+        <span class="topbar-item">BIOMETRIC ENTRY: <strong class="text-accent">ACTIVE</strong></span>
+        <span class="topbar-sep">|</span>
+        <span class="topbar-item">NEXT CLASS: <strong class="text-white">HEAVY IRON • 18:00</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Bar -->
+  <div class="header-main">
+    <div class="container header-main-inner">
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand-logo" aria-label="Iron Forge Fitness Homepage">
+        <span class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 4H20V8L14 14V20H10V14L4 8V4Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="miter"/>
+            <path d="M9 4V8" stroke="#08090b" stroke-width="2"/>
+            <path d="M15 4V8" stroke="#08090b" stroke-width="2"/>
+          </svg>
+        </span>
+        <div class="brand-text">
+          <span class="brand-name">IRON FORGE</span>
+          <span class="brand-tag">FITNESS // SECTOR 04</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="#philosophy" class="nav-link"><span class="nav-num">01</span>PHILOSOPHY</a></li>
+          <li><a href="#programs" class="nav-link"><span class="nav-num">02</span>PROGRAMS</a></li>
+          <li><a href="#facility" class="nav-link"><span class="nav-num">03</span>FACILITY</a></li>
+          <li><a href="#coaches" class="nav-link"><span class="nav-num">04</span>COACHES</a></li>
+          <li><a href="#schedule" class="nav-link"><span class="nav-num">05</span>SCHEDULE</a></li>
+          <li><a href="#membership" class="nav-link"><span class="nav-num">06</span>MEMBERSHIP</a></li>
+          <li><a href="#location" class="nav-link"><span class="nav-num">07</span>LOCATION</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="header-actions">
+        <button class="btn btn-primary btn-sm cut-corner-br open-trial-modal" type="button" aria-label="Claim Free 3-Day Trial Pass">
+          <span>CLAIM 3-DAY PASS</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+          <span class="menu-label">MENU</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop"></div>
+    <div class="mobile-drawer-content">
+      <div class="mobile-drawer-header">
+        <div class="brand-text">
+          <span class="brand-name">IRON FORGE</span>
+          <span class="brand-tag">TACTICAL ATHLETIC COMPOUND</span>
+        </div>
+        <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Close menu">✕</button>
+      </div>
+
+      <nav class="mobile-nav" aria-label="Mobile Navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="#philosophy" class="mobile-nav-link"><span class="nav-num">01 //</span> MANIFESTO & PHILOSOPHY</a></li>
+          <li><a href="#programs" class="mobile-nav-link"><span class="nav-num">02 //</span> TRAINING DISCIPLINES</a></li>
+          <li><a href="#facility" class="mobile-nav-link"><span class="nav-num">03 //</span> 45,000 SQ FT FACILITY</a></li>
+          <li><a href="#coaches" class="mobile-nav-link"><span class="nav-num">04 //</span> ELITE COACHING STAFF</a></li>
+          <li><a href="#schedule" class="mobile-nav-link"><span class="nav-num">05 //</span> CLASS SCHEDULE & ROSTER</a></li>
+          <li><a href="#calculator" class="mobile-nav-link"><span class="nav-num">06 //</span> 90-DAY CALCULATOR</a></li>
+          <li><a href="#membership" class="mobile-nav-link"><span class="nav-num">07 //</span> MEMBERSHIP TIERS</a></li>
+          <li><a href="#location" class="mobile-nav-link"><span class="nav-num">08 //</span> INDUSTRIAL COMPOUND</a></li>
+          <li><a href="#faq" class="mobile-nav-link"><span class="nav-num">09 //</span> ATHLETE FAQ</a></li>
+        </ul>
+      </nav>
+
+      <div class="mobile-drawer-footer">
+        <button class="btn btn-primary btn-lg cut-corner-br w-full open-trial-modal" type="button">
+          CLAIM FREE 3-DAY PASS
+        </button>
+        <div class="drawer-meta">
+          <p><strong>742 FOUNDRY INDUSTRIAL BLVD</strong></p>
+          <p>SAN FRANCISCO, CA • (415) 890-IRON</p>
+          <p class="text-accent mt-2">24/7 BIOMETRIC ACCESS ACTIVE</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform var(--transition-normal), background-color var(--transition-normal);
+  }
+
+  /* Header Topbar */
+  .header-topbar {
+    background-color: rgba(8, 9, 11, 0.95);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0.35rem 0;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+  }
+
+  .header-topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .topbar-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .topbar-stats {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .topbar-sep {
+    color: var(--border-medium);
+  }
+
+  .text-accent {
+    color: var(--accent-primary);
+  }
+
+  .text-white {
+    color: var(--text-white);
+  }
+
+  /* Main Nav Header */
+  .header-main {
+    background-color: rgba(14, 15, 20, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-subtle);
+    transition: all var(--transition-normal);
+  }
+
+  .site-header.scrolled .header-main {
+    background-color: rgba(8, 9, 11, 0.95);
+    border-bottom: 1px solid var(--border-medium);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .header-main-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  /* Brand Logo */
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+  }
+
+  .brand-icon {
+    width: 38px;
+    height: 38px;
+    background-color: var(--accent-primary);
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+    box-shadow: 0 0 15px var(--accent-glow);
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brand-name {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--text-heading);
+    line-height: 1;
+  }
+
+  .brand-tag {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* Desktop Nav */
+  .desktop-nav {
+    display: flex;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 1.75rem;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    letter-spacing: 0.08em;
+    color: var(--text-body);
+    transition: color var(--transition-fast), transform var(--transition-fast);
+    position: relative;
+    padding: 0.5rem 0;
+  }
+
+  .nav-num {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--accent-primary);
+    opacity: 0.8;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-primary);
+    transition: width var(--transition-normal);
+  }
+
+  .nav-link:hover {
+    color: var(--text-white);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Header Actions */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--border-medium);
+    padding: 0.6rem 0.85rem;
+    color: var(--text-white);
+    cursor: pointer;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+
+  .mobile-menu-toggle:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+  }
+
+  .hamburger-box {
+    width: 18px;
+    height: 12px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    width: 18px;
+    height: 2px;
+    background-color: currentColor;
+    position: absolute;
+    transition: transform var(--transition-fast);
+  }
+
+  .hamburger-inner {
+    top: 5px;
+  }
+
+  .hamburger-inner::before {
+    content: '';
+    top: -5px;
+  }
+
+  .hamburger-inner::after {
+    content: '';
+    bottom: -5px;
+  }
+
+  /* Mobile Drawer */
+  .mobile-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2000;
+    pointer-events: none;
+    visibility: hidden;
+    transition: visibility 0.3s ease;
+  }
+
+  .mobile-drawer.active {
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  .mobile-drawer-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .mobile-drawer.active .mobile-drawer-backdrop {
+    opacity: 1;
+  }
+
+  .mobile-drawer-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 420px;
+    height: 100%;
+    background-color: var(--bg-surface);
+    border-left: 1px solid var(--border-medium);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: translateX(100%);
+    transition: transform 0.35s var(--ease-out-expo);
+    overflow-y: auto;
+  }
+
+  .mobile-drawer.active .mobile-drawer-content {
+    transform: translateX(0);
+  }
+
+  .mobile-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .drawer-close-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border-medium);
+    color: var(--text-white);
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+
+  .drawer-close-btn:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+  }
+
+  .mobile-nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    color: var(--text-body);
+    letter-spacing: 0.05em;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .mobile-nav-link:hover {
+    color: var(--accent-primary);
+    transform: translateX(6px);
+  }
+
+  .mobile-drawer-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .drawer-meta {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .w-full {
+    width: 100%;
+  }
+
+  .mt-2 {
+    margin-top: 0.5rem;
+  }
+
+  /* Responsive Breakpoints */
+  @media (max-width: 1140px) {
+    .desktop-nav {
+      display: none;
+    }
+    .mobile-menu-toggle {
+      display: flex;
+    }
+    .topbar-stats .topbar-item:nth-child(n+3) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .header-topbar {
+      display: none;
+    }
+    .header-main-inner {
+      height: 64px;
+    }
+    .header-actions .btn {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Dynamic Scroll & Header Elevation
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  }, { passive: true });
+
+  // Mobile Drawer Toggle
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+  const mobileDrawer = document.getElementById('mobileDrawer');
+  const mobileDrawerBackdrop = document.getElementById('mobileDrawerBackdrop');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+  function openDrawer() {
+    mobileDrawer?.classList.add('active');
+    mobileDrawer?.setAttribute('aria-hidden', 'false');
+    mobileMenuBtn?.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    mobileDrawer?.classList.remove('active');
+    mobileDrawer?.setAttribute('aria-hidden', 'true');
+    mobileMenuBtn?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  mobileMenuBtn?.addEventListener('click', openDrawer);
+  drawerCloseBtn?.addEventListener('click', closeDrawer);
+  mobileDrawerBackdrop?.addEventListener('click', closeDrawer);
+
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', closeDrawer);
+  });
+
+  // Simulated live occupancy fluctuation
+  const liveOccupancy = document.getElementById('liveOccupancy');
+  if (liveOccupancy) {
+    setInterval(() => {
+      const base = 42;
+      const variation = Math.floor(Math.random() * 9) - 4;
+      liveOccupancy.textContent = `${Math.min(92, Math.max(25, base + variation))}%`;
+    }, 15000);
+  }
+</script>

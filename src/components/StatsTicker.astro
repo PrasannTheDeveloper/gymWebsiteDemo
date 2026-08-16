@@ -1,0 +1,265 @@
+---
+// StatsTicker.astro - Architectural Metric & Kinetic Ticker Strip
+---
+
+<section class="stats-section section-border-top section-border-bottom" id="stats" aria-label="Key Performance Statistics">
+  <!-- Kinetic Marquee Ticker -->
+  <div class="ticker-wrapper" aria-hidden="true">
+    <div class="ticker-track">
+      <div class="ticker-content">
+        <span>DISCIPLINE IS THE CURRENCY OF STRENGTH</span>
+        <span class="ticker-dot">•</span>
+        <span>ZERO SHORTCUTS ACCEPTED</span>
+        <span class="ticker-dot">•</span>
+        <span>45,000 SQ FT INDUSTRIAL COMPOUND</span>
+        <span class="ticker-dot">•</span>
+        <span>BIOMECHANICAL RIGOR & PERIODIZATION</span>
+        <span class="ticker-dot">•</span>
+        <span>BUILT UNDER PRESSURE</span>
+        <span class="ticker-dot">•</span>
+        <span>24/7/365 BIOMETRIC KEYCARD ACCESS</span>
+        <span class="ticker-dot">•</span>
+      </div>
+      <div class="ticker-content" aria-hidden="true">
+        <span>DISCIPLINE IS THE CURRENCY OF STRENGTH</span>
+        <span class="ticker-dot">•</span>
+        <span>ZERO SHORTCUTS ACCEPTED</span>
+        <span class="ticker-dot">•</span>
+        <span>45,000 SQ FT INDUSTRIAL COMPOUND</span>
+        <span class="ticker-dot">•</span>
+        <span>BIOMECHANICAL RIGOR & PERIODIZATION</span>
+        <span class="ticker-dot">•</span>
+        <span>BUILT UNDER PRESSURE</span>
+        <span class="ticker-dot">•</span>
+        <span>24/7/365 BIOMETRIC KEYCARD ACCESS</span>
+        <span class="ticker-dot">•</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Editorial Number Grid -->
+  <div class="container stats-container">
+    <div class="stats-grid">
+      <!-- Stat 01 -->
+      <div class="stat-card">
+        <div class="stat-meta">
+          <span class="stat-idx">01 //</span>
+          <span class="stat-tag">FOUNDED 2014</span>
+        </div>
+        <div class="stat-number">
+          <span>12</span><span class="stat-plus text-accent">+</span>
+        </div>
+        <div class="stat-label-wrap">
+          <h3 class="stat-title">YEARS OF RIGOR</h3>
+          <p class="stat-desc">A decade-plus of ruthless biomechanical testing and championship conditioning.</p>
+        </div>
+      </div>
+
+      <!-- Stat 02 -->
+      <div class="stat-card">
+        <div class="stat-meta">
+          <span class="stat-idx">02 //</span>
+          <span class="stat-tag">ACTIVE ROSTER</span>
+        </div>
+        <div class="stat-number">
+          <span>2,500</span><span class="stat-plus text-accent">+</span>
+        </div>
+        <div class="stat-label-wrap">
+          <h3 class="stat-title">COMMITTED ATHLETES</h3>
+          <p class="stat-desc">From competitive powerlifters to Hyrox competitors and disciplined everyday lifters.</p>
+        </div>
+      </div>
+
+      <!-- Stat 03 -->
+      <div class="stat-card">
+        <div class="stat-meta">
+          <span class="stat-idx">03 //</span>
+          <span class="stat-tag">SECTOR 04 COMPOUND</span>
+        </div>
+        <div class="stat-number">
+          <span>45K</span><span class="stat-plus text-accent">SQFT</span>
+        </div>
+        <div class="stat-label-wrap">
+          <h3 class="stat-title">INDUSTRIAL FOOTPRINT</h3>
+          <p class="stat-desc">Custom power cages, Olympic platforms, 60m turf, combat ring, and recovery suites.</p>
+        </div>
+      </div>
+
+      <!-- Stat 04 -->
+      <div class="stat-card">
+        <div class="stat-meta">
+          <span class="stat-idx">04 //</span>
+          <span class="stat-tag">OPERATIONAL UPTIME</span>
+        </div>
+        <div class="stat-number">
+          <span>24/7</span><span class="stat-plus text-accent">365</span>
+        </div>
+        <div class="stat-label-wrap">
+          <h3 class="stat-title">UNRESTRICTED ACCESS</h3>
+          <p class="stat-desc">Zero lockouts. Biometric entry lets you train whenever discipline demands.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats-section {
+    background-color: var(--bg-deep);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Kinetic Marquee */
+  .ticker-wrapper {
+    background-color: var(--accent-primary);
+    color: var(--text-dark);
+    padding: 0.65rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  }
+
+  .ticker-track {
+    display: inline-flex;
+    animation: ticker 35s linear infinite;
+  }
+
+  .ticker-content {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    padding-right: 1.5rem;
+  }
+
+  .ticker-dot {
+    opacity: 0.6;
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* Stats Grid */
+  .stats-container {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-left: 1px solid var(--border-subtle);
+    border-right: 1px solid var(--border-subtle);
+  }
+
+  .stat-card {
+    padding: 2rem 2.25rem;
+    border-right: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    background: transparent;
+    transition: background-color var(--transition-normal);
+  }
+
+  .stat-card:last-child {
+    border-right: none;
+  }
+
+  .stat-card:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+
+  .stat-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+  }
+
+  .stat-idx {
+    color: var(--accent-primary);
+  }
+
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 5.5vw, 4.5rem);
+    line-height: 0.9;
+    color: var(--text-white);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: baseline;
+  }
+
+  .stat-plus {
+    font-size: 0.65em;
+    margin-left: 0.15em;
+  }
+
+  .stat-label-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    letter-spacing: 0.04em;
+    color: var(--text-white);
+    margin-bottom: 0.45rem;
+  }
+
+  .stat-desc {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--text-body);
+  }
+
+  /* Responsive Media Queries */
+  @media (max-width: 1100px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+      border-right: 1px solid var(--border-subtle);
+    }
+    .stat-card:nth-child(2) {
+      border-right: none;
+    }
+    .stat-card:nth-child(1), .stat-card:nth-child(2) {
+      border-bottom: 1px solid var(--border-subtle);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .stats-container {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+    .stats-grid {
+      grid-template-columns: 1fr;
+      border: none;
+    }
+    .stat-card {
+      padding: 1.75rem 1rem;
+      border-right: none;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .stat-card:last-child {
+      border-bottom: none;
+    }
+    .stat-number {
+      font-size: 3rem;
+    }
+  }
+</style>

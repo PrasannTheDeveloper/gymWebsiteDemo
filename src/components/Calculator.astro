@@ -1,0 +1,490 @@
+---
+// Calculator.astro - Interactive 90-Day Athlete Trajectory Calculator
+---
+
+<section class="section calculator-section section-border-top" id="calculator" aria-label="Performance Trajectory Calculator">
+  <div class="container">
+    <!-- Header -->
+    <div class="calc-header">
+      <div class="editorial-badge">
+        <span>07 // ATHLETIC TELEMETRY</span>
+      </div>
+      <h2 class="section-title-huge">
+        CALCULATE YOUR <span class="text-accent">90-DAY TRAJECTORY.</span>
+      </h2>
+      <p class="section-lead">
+        Input your training baseline and target parameters to calculate estimated strength gains, energy expenditure, and the optimal periodization protocol.
+      </p>
+    </div>
+
+    <!-- Calculator Interactive Box -->
+    <div class="calc-grid">
+      <!-- Left: Inputs Column -->
+      <div class="calc-inputs-col">
+        <!-- Input 1: Primary Objective -->
+        <div class="calc-group">
+          <label class="calc-label" for="calcGoal">
+            <span class="step-num">01.</span> SELECT PRIMARY OBJECTIVE
+          </label>
+          <div class="calc-options-grid" id="goalOptions">
+            <button type="button" class="opt-btn active" data-goal="strength">
+              <span class="opt-title">MAXIMAL STRENGTH</span>
+              <span class="opt-desc">Powerlifting & 1RM Force Output</span>
+            </button>
+            <button type="button" class="opt-btn" data-goal="hyrox">
+              <span class="opt-title">HYBRID / HYROX</span>
+              <span class="opt-desc">Lactate Threshold & Work Capacity</span>
+            </button>
+            <button type="button" class="opt-btn" data-goal="hypertrophy">
+              <span class="opt-title">LEAN HYPERTROPHY</span>
+              <span class="opt-desc">Targeted Volume & Muscle Mass</span>
+            </button>
+            <button type="button" class="opt-btn" data-goal="recomp">
+              <span class="opt-title">BODY RECOMP</span>
+              <span class="opt-desc">Fat Oxidation & Athletic Density</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Input 2: Training Experience -->
+        <div class="calc-group">
+          <label class="calc-label">
+            <span class="step-num">02.</span> BARBELL EXPERIENCE LEVEL
+          </label>
+          <div class="calc-pills-row" id="expOptions">
+            <button type="button" class="pill-btn" data-exp="novice">NOVICE (&lt; 1 YR)</button>
+            <button type="button" class="pill-btn active" data-exp="intermediate">INTERMEDIATE (1-3 YRS)</button>
+            <button type="button" class="pill-btn" data-exp="advanced">ADVANCED (3+ YRS)</button>
+          </div>
+        </div>
+
+        <!-- Input 3: Weekly Frequency -->
+        <div class="calc-group">
+          <label class="calc-label">
+            <span class="step-num">03.</span> WEEKLY TRAINING COMMITMENT
+          </label>
+          <div class="calc-pills-row" id="freqOptions">
+            <button type="button" class="pill-btn" data-freq="3">3 SESSIONS / WK</button>
+            <button type="button" class="pill-btn active" data-freq="4">4 SESSIONS / WK</button>
+            <button type="button" class="pill-btn" data-freq="5">5 SESSIONS / WK</button>
+            <button type="button" class="pill-btn" data-freq="6">6 SESSIONS / WK</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Calculated Trajectory Output Card -->
+      <div class="calc-output-col">
+        <div class="output-card cut-corner-br">
+          <div class="output-header">
+            <span class="status-dot"></span>
+            <span class="output-hud-title">FORGE PROJECTION MODEL // V4.2</span>
+          </div>
+
+          <div class="output-metrics-display">
+            <!-- Projected Lift Gain -->
+            <div class="out-stat-block">
+              <span class="out-label">PROJECTED 90-DAY COMPOUND TOTAL GAIN</span>
+              <div class="out-val-wrap">
+                <span class="out-val text-accent" id="calcLiftGain">+45 KG</span>
+                <span class="out-sub">ON BIG 3 POWER LIFTS</span>
+              </div>
+            </div>
+
+            <div class="out-divider"></div>
+
+            <!-- Estimated Caloric Output -->
+            <div class="out-stat-block">
+              <span class="out-label">ESTIMATED WEEKLY CALORIC EXPENDITURE</span>
+              <div class="out-val-wrap">
+                <span class="out-val text-white" id="calcCalBurn">3,600 KCAL</span>
+                <span class="out-sub">ACTIVE TRAINING METRICS</span>
+              </div>
+            </div>
+
+            <div class="out-divider"></div>
+
+            <!-- Recommended Periodization Split -->
+            <div class="out-stat-block">
+              <span class="out-label">RECOMMENDED SYSTEM PROTOCOL</span>
+              <span class="out-protocol-name" id="calcProtocol">CONCURRENT POWER & CNS PERIODIZATION</span>
+              <p class="out-protocol-desc" id="calcProtocolDesc">
+                4-day upper/lower heavy wave progression combined with 1 weekly lactate threshold recovery block.
+              </p>
+            </div>
+          </div>
+
+          <div class="output-footer">
+            <div class="rec-tier-badge">
+              <span class="rec-label">RECOMMENDED TIER:</span>
+              <strong class="rec-tier-name text-accent" id="calcTier">IRON PRO MEMBERSHIP</strong>
+            </div>
+            <button class="btn btn-primary btn-sm cut-corner-br w-full open-trial-modal" type="button" id="calcCtaBtn">
+              <span>ACTIVATE YOUR 90-DAY PROTOCOL</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .calculator-section {
+    background-color: var(--bg-black);
+    position: relative;
+  }
+
+  .calc-header {
+    margin-bottom: 3.5rem;
+  }
+
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3.5rem;
+    align-items: stretch;
+  }
+
+  /* Left: Inputs */
+  .calc-inputs-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+  }
+
+  .calc-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .calc-label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-white);
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .step-num {
+    color: var(--accent-primary);
+  }
+
+  /* Option Buttons Grid */
+  .calc-options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .opt-btn {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    padding: 1.15rem 1rem;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    transition: all var(--transition-fast);
+  }
+
+  .opt-btn:hover {
+    background-color: var(--bg-card);
+    border-color: var(--border-medium);
+  }
+
+  .opt-btn.active {
+    background-color: var(--bg-card);
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 15px rgba(184, 255, 0, 0.12);
+  }
+
+  .opt-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--text-white);
+    letter-spacing: 0.04em;
+  }
+
+  .opt-btn.active .opt-title {
+    color: var(--accent-primary);
+  }
+
+  .opt-desc {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    line-height: 1.35;
+  }
+
+  /* Pills Row */
+  .calc-pills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .pill-btn {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-body);
+    padding: 0.65rem 1rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .pill-btn:hover {
+    color: var(--text-white);
+    background-color: var(--bg-card);
+  }
+
+  .pill-btn.active {
+    background-color: var(--bg-card);
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+  }
+
+  /* Right: Output Card */
+  .calc-output-col {
+    display: flex;
+  }
+
+  .output-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-strong);
+    border-top: 3px solid var(--accent-primary);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+
+  .output-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 1.5rem;
+  }
+
+  .output-hud-title {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    color: var(--text-white);
+    font-weight: 700;
+  }
+
+  .output-metrics-display {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .out-stat-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .out-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  .out-val-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+
+  .out-val {
+    font-family: var(--font-display);
+    font-size: 2.85rem;
+    line-height: 1;
+  }
+
+  .out-sub {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+  }
+
+  .out-divider {
+    height: 1px;
+    background-color: var(--border-subtle);
+  }
+
+  .out-protocol-name {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: var(--text-white);
+    letter-spacing: 0.04em;
+  }
+
+  .out-protocol-desc {
+    font-size: 0.84rem;
+    line-height: 1.5;
+    color: var(--text-body);
+  }
+
+  .output-footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .rec-tier-badge {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+
+  .rec-label {
+    color: var(--text-muted);
+  }
+
+  .rec-tier-name {
+    font-weight: 700;
+  }
+
+  .text-accent {
+    color: var(--accent-primary);
+  }
+
+  .text-white {
+    color: var(--text-white);
+  }
+
+  .w-full {
+    width: 100%;
+  }
+
+  /* Responsive Breakpoints */
+  @media (max-width: 1024px) {
+    .calc-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .calc-options-grid {
+      grid-template-columns: 1fr;
+    }
+    .calc-pills-row {
+      flex-direction: column;
+    }
+    .output-card {
+      padding: 1.5rem 1.25rem;
+    }
+    .out-val {
+      font-size: 2.25rem;
+    }
+  }
+</style>
+
+<script>
+  // 90-Day Trajectory Calculations Logic
+  let selectedGoal = 'strength';
+  let selectedExp = 'intermediate';
+  let selectedFreq = 4;
+
+  const goalBtns = document.querySelectorAll('.opt-btn');
+  const expBtns = document.querySelectorAll('#expOptions .pill-btn');
+  const freqBtns = document.querySelectorAll('#freqOptions .pill-btn');
+
+  const liftGainEl = document.getElementById('calcLiftGain');
+  const calBurnEl = document.getElementById('calcCalBurn');
+  const protocolEl = document.getElementById('calcProtocol');
+  const protocolDescEl = document.getElementById('calcProtocolDesc');
+  const tierEl = document.getElementById('calcTier');
+
+  function updateCalculation() {
+    let baseGain = 45;
+    let baseCal = 3600;
+    let protocolName = 'CONCURRENT POWER & CNS PERIODIZATION';
+    let protocolDesc = '4-day upper/lower heavy wave progression combined with 1 weekly lactate recovery block.';
+    let tier = 'IRON PRO MEMBERSHIP';
+
+    // Goal adjustments
+    if (selectedGoal === 'strength') {
+      baseGain = selectedExp === 'novice' ? 65 : selectedExp === 'intermediate' ? 45 : 25;
+      baseCal = selectedFreq * 850;
+      protocolName = 'MAXIMAL FORCE & 1RM PERIODIZATION';
+      protocolDesc = `${selectedFreq}-day heavy compound split focusing on RPE 8-10 squat, bench, and deadlift velocity.`;
+      tier = selectedFreq >= 5 ? 'FORGE ELITE' : 'IRON PRO MEMBERSHIP';
+    } else if (selectedGoal === 'hyrox') {
+      baseGain = selectedExp === 'novice' ? 35 : selectedExp === 'intermediate' ? 25 : 15;
+      baseCal = selectedFreq * 1100;
+      protocolName = 'LACTATE CLEARANCE & WORK CAPACITY';
+      protocolDesc = `${selectedFreq}-day hybrid engine protocol featuring 60m prowler sleds, SkiErg intervals, and tactical carries.`;
+      tier = 'IRON PRO MEMBERSHIP';
+    } else if (selectedGoal === 'hypertrophy') {
+      baseGain = selectedExp === 'novice' ? 50 : selectedExp === 'intermediate' ? 35 : 20;
+      baseCal = selectedFreq * 750;
+      protocolName = 'STRUCTURAL HYPERTROPHY & DENSITY';
+      protocolDesc = `${selectedFreq}-day high-volume periodized program with calibrated mechanical tension and drop sets.`;
+      tier = 'IRON PRO MEMBERSHIP';
+    } else if (selectedGoal === 'recomp') {
+      baseGain = selectedExp === 'novice' ? 40 : selectedExp === 'intermediate' ? 30 : 15;
+      baseCal = selectedFreq * 950;
+      protocolName = 'HIGH-INTENSITY METABOLIC FLUX';
+      protocolDesc = `${selectedFreq}-day compound strength combined with 45-min combat heavy bag intervals and cryo recovery.`;
+      tier = 'FORGE ELITE';
+    }
+
+    if (liftGainEl) liftGainEl.textContent = `+${baseGain} KG`;
+    if (calBurnEl) calBurnEl.textContent = `${baseCal.toLocaleString()} KCAL`;
+    if (protocolEl) protocolEl.textContent = protocolName;
+    if (protocolDescEl) protocolDescEl.textContent = protocolDesc;
+    if (tierEl) tierEl.textContent = tier;
+  }
+
+  goalBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      goalBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedGoal = btn.getAttribute('data-goal') || 'strength';
+      updateCalculation();
+    });
+  });
+
+  expBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      expBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedExp = btn.getAttribute('data-exp') || 'intermediate';
+      updateCalculation();
+    });
+  });
+
+  freqBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      freqBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedFreq = parseInt(btn.getAttribute('data-freq') || '4', 10);
+      updateCalculation();
+    });
+  });
+</script>

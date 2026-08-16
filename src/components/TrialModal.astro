@@ -1,0 +1,581 @@
+---
+// TrialModal.astro - Interactive Multi-Step 3-Day Free Trial Pass Generator
+---
+
+<div class="trial-modal-container" id="trialPassModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+
+  <div class="modal-dialog cut-corner-br">
+    <!-- Close Button -->
+    <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">✕</button>
+
+    <!-- STEP 1: FORM VIEW -->
+    <div class="modal-step-content" id="modalStepForm">
+      <div class="modal-header">
+        <div class="editorial-badge">
+          <span>TRIAL INTAKE // 00</span>
+        </div>
+        <h3 class="modal-title" id="modalTitle">CLAIM 3-DAY COMPOUND PASS</h3>
+        <p class="modal-subtitle">
+          Experience 45,000 sq ft of unrestricted powerlifting, hybrid turf, and thermal recovery. No credit card required.
+        </p>
+      </div>
+
+      <form class="trial-form" id="modalForm">
+        <!-- Goal Selection -->
+        <div class="form-field">
+          <label class="field-label" for="trialGoal">PRIMARY TRAINING OBJECTIVE</label>
+          <select id="trialGoal" name="goal" class="field-select" required>
+            <option value="Maximal Strength & Powerlifting">Maximal Strength & Powerlifting</option>
+            <option value="Functional Athletics & Hyrox">Functional Athletics & Hyrox</option>
+            <option value="Combat Striking & Boxing">Combat Striking & Boxing</option>
+            <option value="Hypertrophy & Body Recomposition">Hypertrophy & Body Recomposition</option>
+            <option value="Olympic Weightlifting & Mobility">Olympic Weightlifting & Mobility</option>
+          </select>
+        </div>
+
+        <!-- Inputs Grid -->
+        <div class="form-row-2">
+          <div class="form-field">
+            <label class="field-label" for="athleteNameInput">FULL NAME</label>
+            <input
+              type="text"
+              id="athleteNameInput"
+              name="name"
+              placeholder="e.g. David Vance"
+              class="field-input"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label class="field-label" for="athleteEmailInput">EMAIL ADDRESS</label>
+            <input
+              type="email"
+              id="athleteEmailInput"
+              name="email"
+              placeholder="e.g. athlete@domain.com"
+              class="field-input"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-field">
+            <label class="field-label" for="athletePhoneInput">PHONE (FOR SMS KEYCARD PIN)</label>
+            <input
+              type="tel"
+              id="athletePhoneInput"
+              name="phone"
+              placeholder="(415) 000-0000"
+              class="field-input"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label class="field-label" for="preferredStart">START DATE</label>
+            <select id="preferredStart" name="startDate" class="field-select" required>
+              <option value="Today (Immediate Activation)">Today (Immediate Activation)</option>
+              <option value="Tomorrow Morning">Tomorrow Morning</option>
+              <option value="This Weekend">This Weekend</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-lg cut-corner-br w-full mt-3" type="submit">
+          <span>GENERATE DIGITAL KEYCARD PASS</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+
+        <p class="form-disclaimer">
+          🔒 Encrypted transmission. Pass includes 24/7 compound access + 2 coach-led classes.
+        </p>
+      </form>
+    </div>
+
+    <!-- STEP 2: INSTANT DIGITAL PASS GENERATED -->
+    <div class="modal-step-content" id="modalStepPass" style="display: none;">
+      <div class="pass-success-badge">
+        <span class="status-dot"></span>
+        <span>PASS ISSUED // BIOMETRICS REGISTERED</span>
+      </div>
+
+      <h3 class="pass-issued-title">YOUR 3-DAY DIGITAL PASS IS ACTIVE</h3>
+
+      <!-- Digital Pass Card -->
+      <div class="digital-ticket-card cut-corner-tl cut-corner-br">
+        <div class="ticket-header">
+          <div class="t-brand">
+            <span class="t-logo">IRON FORGE</span>
+            <span class="t-sub">SECTOR 04 COMPOUND</span>
+          </div>
+          <div class="t-tier">3-DAY ACCESS</div>
+        </div>
+
+        <div class="ticket-body">
+          <div class="t-row">
+            <div class="t-data">
+              <span class="t-label">ATHLETE NAME</span>
+              <span class="t-val text-white" id="passHolderName">ALEX MORGAN</span>
+            </div>
+            <div class="t-data">
+              <span class="t-label">PASS ID</span>
+              <span class="t-val text-accent">#IF-2026-9842</span>
+            </div>
+          </div>
+
+          <div class="t-row">
+            <div class="t-data">
+              <span class="t-label">KEYCARD PIN</span>
+              <span class="t-val text-white">4920 #</span>
+            </div>
+            <div class="t-data">
+              <span class="t-label">EXPIRY</span>
+              <span class="t-val text-accent">72 HOURS FROM FIRST SCAN</span>
+            </div>
+          </div>
+
+          <div class="t-data">
+            <span class="t-label">REGISTERED CONTACT</span>
+            <span class="t-val text-white" id="passHolderEmail">athlete@ironforge.com</span>
+          </div>
+
+          <!-- Barcode Simulation -->
+          <div class="ticket-barcode-wrapper">
+            <div class="barcode-lines">
+              <span class="bar b1"></span><span class="bar b2"></span><span class="bar b1"></span>
+              <span class="bar b3"></span><span class="bar b1"></span><span class="bar b2"></span>
+              <span class="bar b4"></span><span class="bar b1"></span><span class="bar b3"></span>
+              <span class="bar b2"></span><span class="bar b1"></span><span class="bar b4"></span>
+              <span class="bar b2"></span><span class="bar b1"></span><span class="bar b3"></span>
+            </div>
+            <span class="barcode-num">|||| | ||||| || |||| ||| |||| 9842</span>
+          </div>
+        </div>
+
+        <div class="ticket-footer">
+          <p>SHOW AT GATED FRONT ENTRANCE OR ENTER PIN AT KIOSK // 742 FOUNDRY BLVD</p>
+        </div>
+      </div>
+
+      <div class="pass-actions-group">
+        <button class="btn btn-primary cut-corner-br w-full" id="printPassBtn" type="button">
+          SAVE / PRINT DIGITAL PASS
+        </button>
+        <button class="btn btn-secondary cut-corner-br w-full" id="closePassModalBtn" type="button">
+          RETURN TO OVERVIEW
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .trial-modal-container {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    pointer-events: none;
+    visibility: hidden;
+    transition: visibility 0.3s ease;
+  }
+
+  .trial-modal-container.active {
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  .modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 5, 7, 0.85);
+    backdrop-filter: blur(12px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .trial-modal-container.active .modal-backdrop {
+    opacity: 1;
+  }
+
+  .modal-dialog {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 640px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-strong);
+    border-top: 3px solid var(--accent-primary);
+    padding: 2.5rem;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
+    transform: translateY(20px) scale(0.98);
+    transition: transform 0.35s var(--ease-out-expo);
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .trial-modal-container.active .modal-dialog {
+    transform: translateY(0) scale(1);
+  }
+
+  .modal-close-btn {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-medium);
+    color: var(--text-white);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all var(--transition-fast);
+  }
+
+  .modal-close-btn:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+  }
+
+  .modal-header {
+    margin-bottom: 1.75rem;
+  }
+
+  .modal-title {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    color: var(--text-white);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-subtitle {
+    font-size: 0.88rem;
+    color: var(--text-body);
+    line-height: 1.5;
+  }
+
+  /* Form */
+  .trial-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .form-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .field-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--text-white);
+    letter-spacing: 0.1em;
+  }
+
+  .field-input, .field-select {
+    background-color: var(--bg-deep);
+    border: 1px solid var(--border-medium);
+    color: var(--text-white);
+    padding: 0.85rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    outline: none;
+    transition: border-color var(--transition-fast);
+  }
+
+  .field-input:focus, .field-select:focus {
+    border-color: var(--accent-primary);
+  }
+
+  .field-select option {
+    background-color: var(--bg-deep);
+    color: var(--text-white);
+  }
+
+  .form-disclaimer {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  /* Step 2 Ticket */
+  .pass-success-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-primary);
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-border);
+    padding: 0.35rem 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .pass-issued-title {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    color: var(--text-white);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .digital-ticket-card {
+    background: var(--bg-deep);
+    border: 1px solid var(--accent-primary);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    box-shadow: 0 0 35px rgba(184, 255, 0, 0.15);
+    margin-bottom: 1.75rem;
+  }
+
+  .ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed var(--border-medium);
+  }
+
+  .t-logo {
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    color: var(--text-white);
+    letter-spacing: 0.05em;
+  }
+
+  .t-sub {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: var(--accent-primary);
+    letter-spacing: 0.1em;
+  }
+
+  .t-tier {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: var(--accent-primary);
+    color: var(--text-dark);
+    padding: 0.25rem 0.6rem;
+  }
+
+  .ticket-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .t-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .t-data {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-mono);
+  }
+
+  .t-label {
+    font-size: 0.62rem;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+  }
+
+  .t-val {
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  .ticket-barcode-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--border-medium);
+  }
+
+  .barcode-lines {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 40px;
+  }
+
+  .bar {
+    background-color: var(--text-white);
+    height: 100%;
+    display: inline-block;
+  }
+
+  .b1 { width: 2px; }
+  .b2 { width: 4px; }
+  .b3 { width: 6px; }
+  .b4 { width: 8px; }
+
+  .barcode-num {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+  }
+
+  .ticket-footer {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .pass-actions-group {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .text-accent {
+    color: var(--accent-primary);
+  }
+
+  .text-white {
+    color: var(--text-white);
+  }
+
+  .w-full {
+    width: 100%;
+  }
+
+  .mt-3 {
+    margin-top: 0.75rem;
+  }
+
+  /* Responsive Media Queries */
+  @media (max-width: 640px) {
+    .modal-dialog {
+      padding: 1.5rem 1.25rem;
+    }
+    .form-row-2 {
+      grid-template-columns: 1fr;
+    }
+    .pass-actions-group {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<script>
+  // Modal Trigger Handlers
+  const openButtons = document.querySelectorAll('.open-trial-modal');
+  const trialModal = document.getElementById('trialPassModal');
+  const modalCloseBtn = document.getElementById('modalCloseBtn');
+  const modalBackdrop = document.getElementById('modalBackdrop');
+  const modalForm = document.getElementById('modalForm');
+  const modalStepForm = document.getElementById('modalStepForm');
+  const modalStepPass = document.getElementById('modalStepPass');
+  const closePassModalBtn = document.getElementById('closePassModalBtn');
+  const printPassBtn = document.getElementById('printPassBtn');
+
+  function openModal(presetInfo?: { program?: string; class?: string; tier?: string }) {
+    if (trialModal && modalStepForm && modalStepPass) {
+      modalStepForm.style.display = 'block';
+      modalStepPass.style.display = 'none';
+
+      // Pre-select program/class if clicked from a card
+      const goalSelect = document.getElementById('trialGoal') as HTMLSelectElement | null;
+      if (goalSelect && presetInfo?.program) {
+        for (let i = 0; i < goalSelect.options.length; i++) {
+          if (goalSelect.options[i].text.toLowerCase().includes(presetInfo.program.toLowerCase())) {
+            goalSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+
+      trialModal.classList.add('active');
+      trialModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeModal() {
+    if (trialModal) {
+      trialModal.classList.remove('active');
+      trialModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  }
+
+  openButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const prog = btn.getAttribute('data-program') || undefined;
+      const cls = btn.getAttribute('data-class') || undefined;
+      const tier = btn.getAttribute('data-tier') || undefined;
+      openModal({ program: prog, class: cls, tier });
+    });
+  });
+
+  modalCloseBtn?.addEventListener('click', closeModal);
+  modalBackdrop?.addEventListener('click', closeModal);
+  closePassModalBtn?.addEventListener('click', closeModal);
+
+  // Handle Form Submission -> Generates Pass
+  modalForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const target = e.target as HTMLFormElement;
+    const name = (target.elements.namedItem('name') as HTMLInputElement)?.value;
+    const email = (target.elements.namedItem('email') as HTMLInputElement)?.value;
+
+    const passHolderName = document.getElementById('passHolderName');
+    const passHolderEmail = document.getElementById('passHolderEmail');
+
+    if (passHolderName) passHolderName.textContent = (name || 'ATHLETE').toUpperCase();
+    if (passHolderEmail) passHolderEmail.textContent = email || 'athlete@ironforge.com';
+
+    if (modalStepForm && modalStepPass) {
+      modalStepForm.style.display = 'none';
+      modalStepPass.style.display = 'block';
+    }
+
+    const toast = document.getElementById('globalToast');
+    const toastMsg = document.getElementById('toastMessage');
+    if (toast && toastMsg) {
+      toastMsg.textContent = `3-Day Digital Pass Generated for ${name || 'you'}! SMS Keycard PIN sent.`;
+      toast.classList.add('active');
+      setTimeout(() => toast.classList.remove('active'), 5000);
+    }
+  });
+
+  printPassBtn?.addEventListener('click', () => {
+    window.print();
+  });
+</script>

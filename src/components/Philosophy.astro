@@ -1,0 +1,367 @@
+---
+// Philosophy.astro - Editorial Asymmetrical Brand Manifesto
+---
+
+<section class="section philosophy-section" id="philosophy" aria-label="Brand Philosophy and Manifesto">
+  <div class="container">
+    <!-- Section Header Stamp -->
+    <div class="philosophy-header">
+      <div class="editorial-badge">
+        <span>01 // THE FORGE MANIFESTO</span>
+      </div>
+      <div class="philosophy-index">
+        <span class="text-accent">CORE PRINCIPLE //</span> ZERO COMPROMISE
+      </div>
+    </div>
+
+    <!-- Main Asymmetrical Grid Layout -->
+    <div class="philosophy-grid">
+      <!-- Left Column: Manifesto Statement & Pillars -->
+      <div class="philosophy-statement-col">
+        <h2 class="philosophy-title">
+          "WE DO NOT TRAIN FOR <span class="text-accent">AESTHETICS ALONE.</span> WE TRAIN FOR UNCOMPROMISING <span class="outline-text">CAPABILITY.</span>"
+        </h2>
+
+        <p class="philosophy-lead">
+          Mainstream fitness culture is obsessed with vanity and empty shortcuts. At Iron Forge, we treat the human body as a high-performance mechanical structure. We build raw compound strength, explosive anaerobic capacity, and mental discipline that translates into the real world.
+        </p>
+
+        <!-- 3 Pillars Accordion / Card Blocks -->
+        <div class="pillars-list">
+          <!-- Pillar 1 -->
+          <div class="pillar-item">
+            <div class="pillar-num">01</div>
+            <div class="pillar-content">
+              <h3 class="pillar-heading">BIOMECHANICAL RIGOR</h3>
+              <p class="pillar-text">
+                Every movement pattern—from power cleans to heavy deadlifts—is calibrated for optimal joint kinematics and maximum force transmission without structural breakdown.
+              </p>
+            </div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="pillar-item">
+            <div class="pillar-num">02</div>
+            <div class="pillar-content">
+              <h3 class="pillar-heading">PROGRESSIVE OVERLOAD ARCHITECTURE</h3>
+              <p class="pillar-text">
+                No random workouts of the day. Every training block follows systematic periodization, tracking bar velocity, RPE, volume loads, and CNS recovery curves.
+              </p>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="pillar-item">
+            <div class="pillar-num">03</div>
+            <div class="pillar-content">
+              <h3 class="pillar-heading">METABOLIC & RECOVERY SYSTEMS</h3>
+              <p class="pillar-text">
+                Muscle tissue is built during strategic recovery. Our cold plunge tubs, 180°F dry saunas, and pneumatic compression boots accelerate tissue repair and mitochondrial density.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Layered Editorial Coach Composition -->
+      <div class="philosophy-visual-col">
+        <div class="coach-spotlight-wrapper">
+          <div class="coach-photo-frame">
+            <img
+              src="/images/coach_alex.jpg"
+              alt="Alex Carter, Head Strength Director at Iron Forge"
+              class="coach-portrait-img"
+              loading="lazy"
+            />
+            <div class="coach-photo-overlay"></div>
+            
+            <div class="coach-badge-stamp">
+              <span class="stamp-title">ALEX CARTER</span>
+              <span class="stamp-sub">HEAD STRENGTH DIRECTOR // CSCS</span>
+            </div>
+          </div>
+
+          <!-- Floating Manifesto Quote Box -->
+          <div class="manifesto-quote-card cut-corner-br">
+            <div class="quote-symbol">“</div>
+            <p class="quote-text">
+              The barbell never lies to you. 300 pounds is 300 pounds whether you're tired, distracted, or motivated. When you step inside Iron Forge, you leave your ego at the door and submit to the iron.
+            </p>
+            <div class="quote-signature">
+              <div class="sig-line"></div>
+              <span class="sig-name">A. CARTER // 12 YRS COACHING</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .philosophy-section {
+    background-color: var(--bg-black);
+    position: relative;
+  }
+
+  .philosophy-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .philosophy-index {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+  }
+
+  /* Grid Layout */
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 4rem;
+    align-items: flex-start;
+  }
+
+  /* Left Column */
+  .philosophy-statement-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .philosophy-title {
+    font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.75rem;
+  }
+
+  .outline-text {
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.8);
+    color: transparent;
+  }
+
+  .text-accent {
+    color: var(--accent-primary);
+  }
+
+  .philosophy-lead {
+    font-size: 1.12rem;
+    line-height: 1.65;
+    color: var(--text-white);
+    margin-bottom: 2.5rem;
+    max-width: 58ch;
+  }
+
+  /* Pillars */
+  .pillars-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .pillar-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background-color: var(--bg-deep);
+    border: 1px solid var(--border-subtle);
+    border-left: 3px solid var(--border-medium);
+    transition: all var(--transition-normal);
+  }
+
+  .pillar-item:hover {
+    border-left-color: var(--accent-primary);
+    background-color: var(--bg-surface);
+    transform: translateX(4px);
+  }
+
+  .pillar-num {
+    font-family: var(--font-mono);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    line-height: 1;
+  }
+
+  .pillar-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pillar-heading {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: var(--text-white);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+  }
+
+  .pillar-text {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--text-body);
+  }
+
+  /* Right Column: Layered Coach Composition */
+  .philosophy-visual-col {
+    position: relative;
+    padding-top: 1rem;
+  }
+
+  .coach-spotlight-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    margin-left: auto;
+  }
+
+  .coach-photo-frame {
+    position: relative;
+    width: 100%;
+    height: 540px;
+    border: 1px solid var(--border-medium);
+    overflow: hidden;
+    background-color: var(--bg-surface);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+
+  .coach-portrait-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: contrast(1.1) grayscale(15%);
+    transition: transform 0.6s var(--ease-out-expo), filter 0.6s var(--ease-out-expo);
+  }
+
+  .coach-photo-frame:hover .coach-portrait-img {
+    transform: scale(1.03);
+    filter: contrast(1.15) grayscale(0%);
+  }
+
+  .coach-photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(8, 9, 11, 0.85) 100%);
+    pointer-events: none;
+  }
+
+  .coach-badge-stamp {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    background: rgba(8, 9, 11, 0.88);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border-medium);
+    padding: 0.65rem 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stamp-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--text-white);
+    letter-spacing: 0.05em;
+  }
+
+  .stamp-sub {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: var(--accent-primary);
+    letter-spacing: 0.1em;
+  }
+
+  /* Floating Quote Card */
+  .manifesto-quote-card {
+    position: absolute;
+    bottom: -2.5rem;
+    left: -2.5rem;
+    right: 1.5rem;
+    background: rgba(20, 22, 29, 0.95);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--border-strong);
+    border-left: 3px solid var(--accent-primary);
+    padding: 1.5rem 1.75rem;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+    z-index: 5;
+  }
+
+  .quote-symbol {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    line-height: 0.6;
+    color: var(--accent-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .quote-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-white);
+    font-style: italic;
+    margin-bottom: 0.85rem;
+  }
+
+  .quote-signature {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .sig-line {
+    width: 24px;
+    height: 1px;
+    background-color: var(--accent-primary);
+  }
+
+  .sig-name {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+  }
+
+  /* Responsive Breakpoints */
+  @media (max-width: 1024px) {
+    .philosophy-grid {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
+    .coach-spotlight-wrapper {
+      margin-left: 0;
+      max-width: 100%;
+    }
+    .manifesto-quote-card {
+      position: static;
+      margin-top: 1.5rem;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .philosophy-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .philosophy-title {
+      font-size: 2.35rem;
+    }
+    .pillar-item {
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1.25rem;
+    }
+    .coach-photo-frame {
+      height: 380px;
+    }
+  }
+</style>

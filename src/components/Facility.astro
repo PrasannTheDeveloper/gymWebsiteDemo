@@ -1,0 +1,448 @@
+---
+// Facility.astro - Editorial Compound & Zone Architecture
+---
+
+<section class="section facility-section" id="facility" aria-label="Facility and Equipment">
+  <div class="container">
+    <!-- Header -->
+    <div class="facility-header">
+      <div>
+        <div class="editorial-badge">
+          <span>03 // COMPOUND ARCHITECTURE</span>
+        </div>
+        <h2 class="section-title-huge">
+          THE <span class="text-accent">COMPOUND.</span>
+        </h2>
+        <p class="section-lead">
+          45,000 square feet of acoustically isolated, climate-calibrated industrial training territory built exclusively for serious strength athletes.
+        </p>
+      </div>
+
+      <div class="facility-badge-stats">
+        <div class="stat-pill">
+          <span class="pill-dot"></span>
+          <span class="pill-text">6 SPECIALIZED ZONES</span>
+        </div>
+        <div class="stat-pill">
+          <span class="pill-dot"></span>
+          <span class="pill-text">ELEIKO & ROGUE CERTIFIED</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Asymmetric Showcase Component -->
+    <div class="facility-interactive-showcase">
+      <!-- Big Feature Image & Telemetry Window -->
+      <div class="showcase-viewport cut-corner-br">
+        <img
+          id="facilityMainImage"
+          src="/images/facility_weights.jpg"
+          alt="Iron Forge Facility View"
+          class="showcase-img"
+          loading="lazy"
+        />
+        <div class="showcase-overlay"></div>
+
+        <!-- Floating Zone Data Card -->
+        <div class="zone-data-card cut-corner-tl">
+          <div class="zone-tag">
+            <span class="text-accent" id="zoneNumber">ZONE 01 //</span>
+            <span id="zoneCategory">HEAVY IRON FOUNDRY</span>
+          </div>
+          <h3 class="zone-title" id="zoneTitle">THE POWER RACK & DEADLIFT FOUNDRY</h3>
+          <p class="zone-description" id="zoneDescription">
+            14 heavy-gauge steel power cages equipped with Texas power bars, calibrated cast iron plates, dual chalk stations, and band peg anchors for velocity training.
+          </p>
+
+          <div class="zone-inventory-grid" id="zoneInventory">
+            <div class="inv-item">
+              <span class="inv-k">EQUIPMENT</span>
+              <span class="inv-v">14 Custom Power Cages</span>
+            </div>
+            <div class="inv-item">
+              <span class="inv-k">BARS</span>
+              <span class="inv-v">Texas, Kabuki & Ohio</span>
+            </div>
+            <div class="inv-item">
+              <span class="inv-k">PLATES</span>
+              <span class="inv-v">Calibrated Steel & Bumpers</span>
+            </div>
+            <div class="inv-item">
+              <span class="inv-k">SURFACE</span>
+              <span class="inv-v">Reinforced Impact Rubber</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Zone Selection Strip -->
+      <div class="zone-selector-list" role="tablist" aria-label="Facility Zones">
+        <!-- Zone 1 -->
+        <button
+          class="zone-btn active"
+          data-zone="1"
+          data-title="THE POWER RACK & DEADLIFT FOUNDRY"
+          data-category="HEAVY IRON FOUNDRY"
+          data-desc="14 heavy-gauge steel power cages equipped with Texas power bars, calibrated cast iron plates, dual chalk stations, and band peg anchors for velocity training."
+          data-img="/images/facility_weights.jpg"
+          data-inv='[{"k":"EQUIPMENT","v":"14 Custom Power Cages"},{"k":"BARS","v":"Texas, Kabuki & Ohio"},{"k":"PLATES","v":"Calibrated Steel & Bumpers"},{"k":"SURFACE","v":"Reinforced Impact Rubber"}]'
+          role="tab"
+          aria-selected="true"
+        >
+          <div class="zone-btn-idx">01</div>
+          <div class="zone-btn-info">
+            <span class="zone-btn-name">POWER RACK & DEADLIFT FOUNDRY</span>
+            <span class="zone-btn-sub">14 TEXAS POWER BARS • CALIBRATED PLATES</span>
+          </div>
+        </button>
+
+        <!-- Zone 2 -->
+        <button
+          class="zone-btn"
+          data-zone="2"
+          data-title="FUNCTIONAL TURF & SLED ARENA"
+          data-category="HYBRID SLED & SPEED TRACK"
+          data-desc="60 meters of continuous high-traction athletic turf engineered for heavy prowler pushes, sandbag drags, kettlebell farmer carries, and plyometric drills."
+          data-img="/images/facility_turf.jpg"
+          data-inv='[{"k":"TURF LENGTH","v":"60m Continuous Sprint Track"},{"k":"SLEDS","v":"6 Rogue Heavy Prowlers"},{"k":"ERGOMETERS","v":"12 Concept2 SkiErgs & Bikes"},{"k":"WEIGHTS","v":"Cast Iron Kettlebells to 48kg"}]'
+          role="tab"
+          aria-selected="false"
+        >
+          <div class="zone-btn-idx">02</div>
+          <div class="zone-btn-info">
+            <span class="zone-btn-name">FUNCTIONAL TURF & SLED TRACK</span>
+            <span class="zone-btn-sub">60M HIGH-TRACTION SPRINT TURF</span>
+          </div>
+        </button>
+
+        <!-- Zone 3 -->
+        <button
+          class="zone-btn"
+          data-zone="3"
+          data-title="CRYO & THERMAL RECOVERY SUITE"
+          data-category="METABOLIC TISSUE RESTORATION"
+          data-desc="Custom-engineered sports recovery complex featuring commercial cold plunge baths at 38°F, 180°F dry cedar infrared saunas, and pneumatic compression boots."
+          data-img="/images/facility_recovery.jpg"
+          data-inv='[{"k":"COLD PLUNGES","v":"3x Stainless 38°F Tubs"},{"k":"SAUNAS","v":"2x 180°F Cedar Infrared"},{"k":"COMPRESSION","v":"6x Normatec 3 Systems"},{"k":"WATER","v":"Filtered Electrolyte Station"}]'
+          role="tab"
+          aria-selected="false"
+        >
+          <div class="zone-btn-idx">03</div>
+          <div class="zone-btn-info">
+            <span class="zone-btn-name">CRYO & THERMAL RECOVERY SUITE</span>
+            <span class="zone-btn-sub">38°F COLD PLUNGE • 180°F CEDAR SAUNA</span>
+          </div>
+        </button>
+
+        <!-- Zone 4 -->
+        <button
+          class="zone-btn"
+          data-zone="4"
+          data-title="COMBAT & PUGILISTIC ENCLAVE"
+          data-category="STRIKING & ROTATIONAL POWER"
+          data-desc="Dedicated combat arena with 12 heavy leather punching bags, teardrop bags, double-end bags, and competition-spec tatami mats for striking and conditioning."
+          data-img="/images/hero_athlete.jpg"
+          data-inv='[{"k":"BAGS","v":"12x Heavy Leather (100-150lb)"},{"k":"FLOORING","v":"High-Density Tatami Mats"},{"k":"TIMERS","v":"Gymboss Digital Round Clocks"},{"k":"GEAR","v":"Cleto Reyes Sparring Gloves"}]'
+          role="tab"
+          aria-selected="false"
+        >
+          <div class="zone-btn-idx">04</div>
+          <div class="zone-btn-info">
+            <span class="zone-btn-name">COMBAT & PUGILISM ENCLAVE</span>
+            <span class="zone-btn-sub">12 HEAVY BAGS • TATAMI STRIKING MATS</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .facility-section {
+    background-color: var(--bg-black);
+    position: relative;
+  }
+
+  .facility-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .facility-badge-stats {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .stat-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-medium);
+    padding: 0.5rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-white);
+  }
+
+  .pill-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--accent-primary);
+  }
+
+  /* Interactive Showcase */
+  .facility-interactive-showcase {
+    display: grid;
+    grid-template-columns: 1.35fr 0.85fr;
+    gap: 2rem;
+    align-items: stretch;
+  }
+
+  /* Viewport Image Area */
+  .showcase-viewport {
+    position: relative;
+    height: 600px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-medium);
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  }
+
+  .showcase-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(1.1) brightness(0.95);
+    transition: opacity 0.4s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+  }
+
+  .showcase-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(8, 9, 11, 0.1) 0%,
+      rgba(8, 9, 11, 0.3) 40%,
+      rgba(8, 9, 11, 0.95) 100%
+    );
+    pointer-events: none;
+  }
+
+  /* Floating Zone Data Card */
+  .zone-data-card {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    background: rgba(14, 15, 20, 0.94);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border-strong);
+    padding: 1.5rem 1.75rem;
+    z-index: 5;
+  }
+
+  .zone-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .zone-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.5vw, 1.95rem);
+    color: var(--text-white);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+  }
+
+  .zone-description {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--text-body);
+    margin-bottom: 1.25rem;
+    max-width: 60ch;
+  }
+
+  .zone-inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .inv-item {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-mono);
+  }
+
+  .inv-k {
+    font-size: 0.62rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  .inv-v {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-white);
+    margin-top: 2px;
+  }
+
+  /* Zone Selection Strip */
+  .zone-selector-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .zone-btn {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-left: 3px solid transparent;
+    padding: 1.35rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    cursor: pointer;
+    text-align: left;
+    transition: all var(--transition-normal);
+  }
+
+  .zone-btn:hover {
+    background-color: var(--bg-card);
+    border-color: var(--border-medium);
+    transform: translateX(4px);
+  }
+
+  .zone-btn.active {
+    background-color: var(--bg-card);
+    border-left-color: var(--accent-primary);
+    border-color: var(--border-accent);
+  }
+
+  .zone-btn-idx {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+  }
+
+  .zone-btn-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .zone-btn-name {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--text-white);
+    letter-spacing: 0.04em;
+  }
+
+  .zone-btn-sub {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    margin-top: 2px;
+  }
+
+  /* Responsive Media Queries */
+  @media (max-width: 1100px) {
+    .facility-interactive-showcase {
+      grid-template-columns: 1fr;
+    }
+    .showcase-viewport {
+      height: 520px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .showcase-viewport {
+      height: 440px;
+    }
+    .zone-inventory-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .zone-data-card {
+      padding: 1rem;
+      bottom: 0.75rem;
+      left: 0.75rem;
+      right: 0.75rem;
+    }
+    .zone-title {
+      font-size: 1.25rem;
+    }
+  }
+</style>
+
+<script>
+  // Interactive Facility Zone Switcher
+  const zoneButtons = document.querySelectorAll('.zone-btn');
+  const mainImage = document.getElementById('facilityMainImage') as HTMLImageElement | null;
+  const zoneNumber = document.getElementById('zoneNumber');
+  const zoneCategory = document.getElementById('zoneCategory');
+  const zoneTitle = document.getElementById('zoneTitle');
+  const zoneDescription = document.getElementById('zoneDescription');
+  const zoneInventory = document.getElementById('zoneInventory');
+
+  zoneButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      zoneButtons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      const img = btn.getAttribute('data-img');
+      const zNum = btn.getAttribute('data-zone');
+      const title = btn.getAttribute('data-title');
+      const cat = btn.getAttribute('data-category');
+      const desc = btn.getAttribute('data-desc');
+      const invRaw = btn.getAttribute('data-inv');
+
+      if (mainImage && img) {
+        mainImage.style.opacity = '0.3';
+        setTimeout(() => {
+          mainImage.src = img;
+          mainImage.style.opacity = '1';
+        }, 150);
+      }
+
+      if (zoneNumber && zNum) zoneNumber.textContent = `ZONE 0${zNum} //`;
+      if (zoneCategory && cat) zoneCategory.textContent = cat;
+      if (zoneTitle && title) zoneTitle.textContent = title;
+      if (zoneDescription && desc) zoneDescription.textContent = desc;
+
+      if (zoneInventory && invRaw) {
+        try {
+          const items = JSON.parse(invRaw);
+          zoneInventory.innerHTML = items
+            .map(
+              (item: { k: string; v: string }) => `
+            <div class="inv-item">
+              <span class="inv-k">${item.k}</span>
+              <span class="inv-v">${item.v}</span>
+            </div>
+          `
+            )
+            .join('');
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    });
+  });
+</script>

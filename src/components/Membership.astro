@@ -1,0 +1,492 @@
+---
+// Membership.astro - Transparent Tier Architecture & Periodization Access
+---
+
+<section class="section membership-section section-border-top" id="membership" aria-label="Membership Tiers and Pricing">
+  <div class="container">
+    <!-- Header -->
+    <div class="membership-header">
+      <div>
+        <div class="editorial-badge">
+          <span>08 // ACCESS TIERS</span>
+        </div>
+        <h2 class="section-title-huge">
+          MEMBERSHIP <span class="text-accent">ARCHITECTURE.</span>
+        </h2>
+        <p class="section-lead">
+          Transparent, contract-free athletic access. Every plan includes 24/7 biometric entry, calibrated steel, and zero hidden cancellation fees.
+        </p>
+      </div>
+
+      <!-- Monthly / Annual Toggle Switch -->
+      <div class="billing-toggle-wrapper">
+        <span class="billing-label" id="monthlyLabel">MONTHLY</span>
+        <button
+          class="billing-switch-btn"
+          id="billingSwitch"
+          type="button"
+          role="switch"
+          aria-checked="false"
+          aria-label="Toggle Annual Billing"
+        >
+          <span class="switch-handle"></span>
+        </button>
+        <div class="annual-label-group">
+          <span class="billing-label" id="annualLabel">ANNUAL</span>
+          <span class="annual-savings-badge">SAVE 20% + GEAR KIT</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing Cards Grid -->
+    <div class="pricing-grid">
+      <!-- Tier 1: Foundry Basic -->
+      <div class="pricing-card">
+        <div class="card-tier-tag">TIER 01 // ESSENTIAL</div>
+        <h3 class="tier-name">FOUNDRY BASIC</h3>
+        <p class="tier-desc">Unrestricted 24/7 access to the industrial lifting compound and power platforms.</p>
+
+        <div class="price-box">
+          <div class="price-display">
+            <span class="currency">$</span>
+            <span class="amount" data-monthly="89" data-annual="71">89</span>
+          </div>
+          <span class="period">/ MONTH • BILLED MONTHLY</span>
+        </div>
+
+        <div class="tier-features-list">
+          <div class="feature-item">
+            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>24/7/365 Biometric Keycard Access</span>
+          </div>
+          <div class="feature-item">
+            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Power Racks, Platforms & Calibrated Steel</span>
+          </div>
+          <div class="feature-item">
+            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>60m Functional Sled & Sprint Turf</span>
+          </div>
+          <div class="feature-item">
+            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Digital Barbell Velocity & Telemetry App</span>
+          </div>
+          <div class="feature-item text-muted">
+            <svg class="cross-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <span>Coach-Led Cadre Classes</span>
+          </div>
+          <div class="feature-item text-muted">
+            <svg class="cross-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <span>Cryo & Infrared Recovery Suite</span>
+          </div>
+        </div>
+
+        <button class="btn btn-secondary cut-corner-br w-full open-trial-modal" data-tier="Foundry Basic">
+          LOCK IN BASIC RATE
+        </button>
+      </div>
+
+      <!-- Tier 2: Iron Pro (Featured) -->
+      <div class="pricing-card featured-tier">
+        <div class="featured-badge">MOST POPULAR // RECOMMENDED</div>
+        <div class="card-tier-tag text-accent">TIER 02 // PERFORMANCE</div>
+        <h3 class="tier-name">IRON PRO</h3>
+        <p class="tier-desc">Complete compound access plus unlimited coach-led cadre classes and full recovery suite.</p>
+
+        <div class="price-box">
+          <div class="price-display">
+            <span class="currency text-accent">$</span>
+            <span class="amount text-accent" data-monthly="149" data-annual="119">149</span>
+          </div>
+          <span class="period">/ MONTH • NO CONTRACT LOCK</span>
+        </div>
+
+        <div class="tier-features-list">
+          <div class="feature-item">
+            <svg class="check-icon text-accent" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Everything in Foundry Basic</strong></span>
+          </div>
+          <div class="feature-item">
+            <svg class="check-icon text-accent" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Unlimited Coach-Led Classes</strong> (Heavy Iron, Hyrox, Olympic, Boxing)</span>
+          </div>
+          <div class="feature-item">
+            <svg class="check-icon text-accent" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Unlimited Cryo & Infrared Sauna Suite</strong> (38°F Plunge, 180°F Cedar)</span>
+          </div>
+          <div class="feature-item">
+            <svg class="check-icon text-accent" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Monthly InBody 770 Biometric Scans</span>
+          </div>
+          <div class="feature-item">
+            <svg class="check-icon text-accent" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>4 Monthly Guest Passes</span>
+          </div>
+          <div class="feature-item">
+            <svg class="check-icon text-accent" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Executive Towel & Steam Service</span>
+          </div>
+        </div>
+
+        <button class="btn btn-primary cut-corner-br w-full open-trial-modal" data-tier="Iron Pro">
+          <span>JOIN IRON PRO NOW</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- Tier 3: Forge Elite -->
+      <div class="pricing-card">
+        <div class="card-tier-tag">TIER 03 // ALL-INCLUSIVE</div>
+        <h3 class="tier-name">FORGE ELITE</h3>
+        <p class="tier-desc">The ultimate athlete immersion with private 1-on-1 coaching and custom nutrition architecture.</p>
+
+        <div class="price-box">
+          <div class="price-display">
+            <span class="currency">$</span>
+            <span class="amount" data-monthly="289" data-annual="231">289</span>
+          </div>
+          <span class="period">/ MONTH • CONCIERGE LEVEL</span>
+        </div>
+
+        <div class="tier-features-list">
+          <div class="feature-item">
+            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Everything in Iron Pro</strong></span>
+          </div>
+          <div class="feature-item">
+            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>4x 1-on-1 Private Coaching Sessions / mo</strong> with Lead Coaches</span>
+          </div>
+          <div class="feature-item">
+            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Custom Nutrition & Macro Periodization</span>
+          </div>
+          <div class="feature-item">
+            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Dedicated Permanent Executive Locker</span>
+          </div>
+          <div class="feature-item">
+            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Unlimited Free Guest Passes</span>
+          </div>
+          <div class="feature-item">
+            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Custom Leather Lifting Belt & Gym Kit</span>
+          </div>
+        </div>
+
+        <button class="btn btn-secondary cut-corner-br w-full open-trial-modal" data-tier="Forge Elite">
+          LOCK IN ELITE RATE
+        </button>
+      </div>
+    </div>
+
+    <!-- Guarantee Bar -->
+    <div class="guarantee-bar">
+      <div class="g-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>14-DAY UNCONDITIONAL MONEY-BACK GUARANTEE</span>
+      </div>
+      <div class="g-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2.5"><path d="M18.36 6.64a9 9 0 1 1-12.73 0M12 2v10"/></svg>
+        <span>ZERO CANCELLATION TRAPS • 30 SECONDS VIA APP</span>
+      </div>
+      <div class="g-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span>FIRST 3 DAYS FREE ON TRIAL PASS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .membership-section {
+    background-color: var(--bg-black);
+    position: relative;
+  }
+
+  .membership-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+  }
+
+  /* Billing Toggle */
+  .billing-toggle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--bg-surface);
+    padding: 0.75rem 1.25rem;
+    border: 1px solid var(--border-medium);
+  }
+
+  .billing-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--text-white);
+  }
+
+  .billing-switch-btn {
+    width: 48px;
+    height: 26px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-medium);
+    border-radius: 13px;
+    position: relative;
+    cursor: pointer;
+    padding: 2px;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+  }
+
+  .billing-switch-btn[aria-checked="true"] {
+    background-color: var(--accent-primary);
+    border-color: var(--accent-primary);
+  }
+
+  .switch-handle {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: var(--text-white);
+    border-radius: 50%;
+    transition: transform var(--transition-fast);
+  }
+
+  .billing-switch-btn[aria-checked="true"] .switch-handle {
+    transform: translateX(22px);
+    background-color: var(--text-dark);
+  }
+
+  .annual-label-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .annual-savings-badge {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    background-color: var(--accent-primary);
+    padding: 0.2rem 0.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* Grid */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: stretch;
+    margin-bottom: 3.5rem;
+  }
+
+  .pricing-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-accent);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+  }
+
+  .featured-tier {
+    background-color: var(--bg-deep);
+    border: 1px solid var(--accent-primary);
+    box-shadow: 0 0 30px rgba(184, 255, 0, 0.15);
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: -14px;
+    left: 2rem;
+    background-color: var(--accent-primary);
+    color: var(--text-dark);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 800;
+    padding: 0.25rem 0.85rem;
+    letter-spacing: 0.1em;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+  }
+
+  .card-tier-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .tier-name {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    color: var(--text-white);
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .tier-desc {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--text-body);
+    margin-bottom: 1.75rem;
+    min-height: 42px;
+  }
+
+  .price-box {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 1.75rem;
+  }
+
+  .price-display {
+    display: flex;
+    align-items: baseline;
+    line-height: 1;
+  }
+
+  .currency {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--text-white);
+    margin-right: 2px;
+  }
+
+  .amount {
+    font-family: var(--font-display);
+    font-size: 4.25rem;
+    color: var(--text-white);
+    letter-spacing: -0.02em;
+  }
+
+  .period {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    margin-top: 0.25rem;
+  }
+
+  .tier-features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 2.5rem;
+    flex: 1;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: var(--text-white);
+  }
+
+  .check-icon {
+    color: var(--accent-primary);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .cross-icon {
+    color: var(--text-muted);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .text-muted {
+    color: var(--text-muted);
+  }
+
+  .text-accent {
+    color: var(--accent-primary);
+  }
+
+  .w-full {
+    width: 100%;
+  }
+
+  /* Guarantee Bar */
+  .guarantee-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    padding: 1.5rem 2rem;
+  }
+
+  .g-item {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-white);
+    letter-spacing: 0.05em;
+  }
+
+  /* Responsive Media Queries */
+  @media (max-width: 1100px) {
+    .pricing-grid {
+      grid-template-columns: 1fr;
+    }
+    .guarantee-bar {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .membership-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .billing-toggle-wrapper {
+      width: 100%;
+      justify-content: space-between;
+    }
+    .pricing-card {
+      padding: 1.75rem 1.25rem;
+    }
+  }
+</style>
+
+<script>
+  // Monthly / Annual Price Switcher
+  const billingSwitch = document.getElementById('billingSwitch');
+  const amountEls = document.querySelectorAll('.amount');
+  let isAnnual = false;
+
+  billingSwitch?.addEventListener('click', () => {
+    isAnnual = !isAnnual;
+    billingSwitch.setAttribute('aria-checked', isAnnual.toString());
+
+    amountEls.forEach(el => {
+      const monthly = el.getAttribute('data-monthly');
+      const annual = el.getAttribute('data-annual');
+      el.textContent = isAnnual ? annual : monthly;
+    });
+  });
+</script>

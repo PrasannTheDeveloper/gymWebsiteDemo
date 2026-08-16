@@ -1,0 +1,101 @@
+---
+// Toast.astro - Global Industrial Notification Toast
+---
+
+<div class="global-toast-container" id="globalToast" role="status" aria-live="polite">
+  <div class="toast-card cut-corner-br">
+    <div class="toast-icon">
+      <span class="status-dot"></span>
+    </div>
+    <div class="toast-body">
+      <span class="toast-title">SYSTEM TELEMETRY //</span>
+      <p class="toast-msg" id="toastMessage">Pass Generated Successfully.</p>
+    </div>
+    <button class="toast-close" id="toastCloseBtn" aria-label="Dismiss notification">✕</button>
+  </div>
+</div>
+
+<style>
+  .global-toast-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 4000;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .global-toast-container.active {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .toast-card {
+    background-color: rgba(14, 15, 20, 0.95);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--accent-primary);
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+    max-width: 400px;
+  }
+
+  .toast-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .toast-title {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--accent-primary);
+    letter-spacing: 0.12em;
+    font-weight: 700;
+  }
+
+  .toast-msg {
+    font-size: 0.85rem;
+    color: var(--text-white);
+    line-height: 1.4;
+  }
+
+  .toast-close {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 0.95rem;
+    padding: 0.25rem;
+    transition: color var(--transition-fast);
+  }
+
+  .toast-close:hover {
+    color: var(--text-white);
+  }
+
+  @media (max-width: 640px) {
+    .global-toast-container {
+      bottom: 1rem;
+      right: 1rem;
+      left: 1rem;
+    }
+    .toast-card {
+      max-width: 100%;
+    }
+  }
+</style>
+
+<script>
+  const toastCloseBtn = document.getElementById('toastCloseBtn');
+  const globalToast = document.getElementById('globalToast');
+
+  toastCloseBtn?.addEventListener('click', () => {
+    globalToast?.classList.remove('active');
+  });
+</script>
